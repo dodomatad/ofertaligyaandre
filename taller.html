@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Portal VIP • Taller Navideño de la Maestra Lygia</title>
+  <meta name="description" content="Área de alumnas de Mundo Amigurumi Navideño: descarga tus 5 guías en PDF, mira videoclases de puntos básicos en español y accede a colecciones exclusivas." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#064e3b" />
+  <style>
+    :root {
+      --emerald-950: #022c22;
+      --emerald-900: #064e3b;
+      --emerald-800: #065f46;
+      --emerald-700: #047857;
+      --emerald-100: #d1fae5;
+      --emerald-50: #ecfdf5;
+      --burgundy-900: #6b0f1a;
+      --burgundy-700: #991b1b;
+      --gold-500: #d97706;
+      --gold-400: #f59e0b;
+      --gold-100: #fef3c7;
+      --cream-50: #fdfbf7;
+      --cream-100: #f7f1e8;
+      --slate-900: #0f172a;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --border: #e5dfd3;
+      --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 10px 28px rgba(6, 78, 59, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--cream-50);
+      color: var(--slate-900);
+      line-height: 1.5;
+      padding-bottom: 84px;
+    }
+
+    /* Top App Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(6, 78, 59, 0.97);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .topbar-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .brand-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-400);
+      flex-shrink: 0;
+    }
+    .brand-text {
+      min-width: 0;
+    }
+    .brand-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-sub {
+      font-size: 11.5px;
+      color: #a7f3d0;
+    }
+    .vip-pill {
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #1e293b;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.3px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 14px 24px;
+    }
+
+    /* Hero Banner + Welcome */
+    .hero-banner {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--emerald-800);
+      margin-bottom: 16px;
+      background: var(--emerald-900);
+    }
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .welcome-box {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .welcome-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid var(--emerald-700);
+      flex-shrink: 0;
+    }
+    .welcome-box h1 {
+      font-size: 18px;
+      color: var(--emerald-900);
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+    .welcome-box p {
+      font-size: 14px;
+      color: var(--slate-700);
+    }
+
+    /* Progress Bar Card */
+    .progress-card {
+      background: linear-gradient(135deg, #fff, var(--emerald-50));
+      border: 1.5px solid #a7f3d0;
+      border-radius: 16px;
+      padding: 15px 16px;
+      margin-bottom: 20px;
+    }
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 10px;
+    }
+    .progress-head strong {
+      font-size: 14px;
+      color: var(--emerald-900);
+    }
+    .progress-count {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--emerald-700);
+      background: #fff;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid #a7f3d0;
+    }
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #d1fae5;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--emerald-700), #10b981);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+    .progress-tip {
+      margin-top: 7px;
+      font-size: 12.5px;
+      color: var(--slate-700);
+    }
+
+    /* Quick Section Pills */
+    .quick-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .quick-tab {
+      text-align: center;
+      text-decoration: none;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      color: var(--slate-900);
+      padding: 10px 6px;
+      border-radius: 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .quick-tab:hover, .quick-tab:active {
+      border-color: var(--emerald-700);
+      transform: translateY(-1px);
+    }
+
+    /* Section Headings */
+    .section-header {
+      margin: 26px 0 14px;
+      scroll-margin-top: 74px;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--burgundy-700);
+      background: #fee2e2;
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+    .section-eyebrow.green {
+      color: var(--emerald-900);
+      background: var(--emerald-100);
+    }
+    .section-eyebrow.gold {
+      color: #92400e;
+      background: var(--gold-100);
+    }
+    .section-header h2 {
+      font-size: 20px;
+      color: var(--slate-900);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .section-header p {
+      font-size: 13.5px;
+      color: var(--slate-500);
+    }
+
+    /* PDF Module Cards */
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 720px) {
+      .pdf-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .pdf-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 0.2s ease;
+    }
+    .pdf-card.done {
+      border-color: #10b981;
+      background: #f0fdf4;
+    }
+    .pdf-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .pdf-num {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #fff;
+      background: var(--burgundy-900);
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+    .pdf-meta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--emerald-800);
+      background: var(--emerald-50);
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+    .pdf-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin: 8px 0 5px;
+      line-height: 1.25;
+    }
+    .pdf-desc {
+      font-size: 13.5px;
+      color: var(--slate-700);
+    }
+    .pdf-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 12px;
+      border-radius: 11px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: opacity 0.15s ease, transform 0.1s ease;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary {
+      background: var(--emerald-800);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: var(--cream-100);
+      color: var(--slate-900);
+      border: 1.5px solid #d6cbb8;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--slate-700);
+      cursor: pointer;
+      user-select: none;
+    }
+    .check-row input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--emerald-700);
+      cursor: pointer;
+    }
+
+    /* Quick Stitch Glossary */
+    .glossary-card {
+      margin-top: 16px;
+      background: #fffbeb;
+      border: 1.5px solid #fcd34d;
+      border-radius: 16px;
+      padding: 15px 16px;
+    }
+    .glossary-card h3 {
+      font-size: 15px;
+      color: #92400e;
+      margin-bottom: 8px;
+    }
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 8px;
+      font-size: 13px;
+    }
+    .glossary-item {
+      background: #fff;
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      padding: 7px 10px;
+    }
+    .glossary-item strong { color: var(--burgundy-900); }
+
+    /* Video Lessons Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 720px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .video-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0f172a;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .video-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 44, 34, 0.34);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .play-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(220, 38, 38, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .play-circle svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+      margin-left: 3px;
+    }
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-body {
+      padding: 14px 15px;
+    }
+    .video-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--emerald-800);
+      background: var(--emerald-50);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+    .video-body h3 {
+      font-size: 15.5px;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+    .video-body p {
+      font-size: 13px;
+      color: var(--slate-500);
+      margin-bottom: 8px;
+    }
+    .yt-fallback {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--emerald-800);
+      text-decoration: underline;
+    }
+
+    /* Showcase / Upsell Storefront */
+    .upsell-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 720px) {
+      .upsell-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .upsell-card {
+      background: #fff;
+      border: 2px solid #f59e0b;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .upsell-img-wrap {
+      position: relative;
+      background: var(--cream-100);
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+    .upsell-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .lock-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(15, 23, 42, 0.86);
+      color: #fde68a;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .upsell-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .upsell-body h3 {
+      font-size: 16px;
+      line-height: 1.25;
+      color: var(--slate-900);
+    }
+    .upsell-body p {
+      font-size: 13px;
+      color: var(--slate-700);
+      flex: 1;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 4px 0;
+    }
+    .price-old {
+      font-size: 13px;
+      color: var(--slate-500);
+      text-decoration: line-through;
+    }
+    .price-now {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--burgundy-700);
+    }
+
+    /* Footer */
+    .portal-footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--slate-500);
+      padding: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Bottom Fixed App Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: #fff;
+      border-top: 1.5px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+    }
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 4px;
+      text-decoration: none;
+      color: var(--slate-700);
+      font-size: 11.5px;
+      font-weight: 700;
+      gap: 2px;
+    }
+    .bottom-nav a.active {
+      color: var(--emerald-800);
+      background: var(--emerald-50);
+    }
+
+    /* Toast feedback */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 74px;
+      transform: translateX(-50%) translateY(16px);
+      background: #0f172a;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 60;
+      max-width: 92vw;
+      text-align: center;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img class="brand-avatar" src="assets/professora-lygia.jpg" alt="Maestra Lygia" />
+        <div class="brand-text">
+          <div class="brand-title">Mundo Amigurumi Navideño</div>
+          <div class="brand-sub">Portal VIP de Alumnas</div>
+        </div>
+      </div>
+      <span class="vip-pill">ACCESO DE POR VIDA</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero-banner">
+      <img src="assets/portal/00_Banner_Checkout_Desktop_1200x620.jpg" alt="Colección Navideña +45 Mini Muñecas Sin Costuras" />
+    </div>
+
+    <section class="welcome-box">
+      <img class="welcome-photo" src="assets/professora-lygia.jpg" alt="Maestra Lygia" />
+      <div>
+        <h1>¡Bienvenida a tu Taller VIP, tejedora!</h1>
+        <p>Aquí tienes reunidas tus <strong>5 guías paso a paso en español</strong>, videoclases complementarias de puntos básicos y tus colecciones extra. Guarda esta página en tus favoritos para entrar cuando quieras.</p>
+      </div>
+    </section>
+
+    <section class="progress-card" aria-label="Progreso navideño">
+      <div class="progress-head">
+        <strong>Mi Progreso Navideño</strong>
+        <span class="progress-count" id="progressCount">0 / 5 guías tejidas</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-tip">Consejo de la Maestra Lygia: empieza por la <strong>Guía #1 (Mini Muñeco de Nieve)</strong>, la terminas en menos de 2 horas.</p>
+    </section>
+
+    <nav class="quick-tabs" aria-label="Atajos del taller">
+      <a class="quick-tab" href="#guias">📚 5 Guías PDF</a>
+      <a class="quick-tab" href="#videos">🎬 Videoclases</a>
+      <a class="quick-tab" href="#ampliar">🔒 Más Talleres</a>
+    </nav>
+
+    <!-- MODULE 1: PDF GUIDES -->
+    <section class="section-header" id="guias">
+      <span class="section-eyebrow green">Módulo 1 • Descarga Directa</span>
+      <h2>Tus 5 Guías Navideñas en Español</h2>
+      <p>Ábrelas en el celular o descárgalas para imprimir o consultar sin internet.</p>
+    </section>
+
+    <div class="pdf-grid">
+      <article class="pdf-card" data-guide="g1">
+        <div>
+          <div class="pdf-top">
+            <span class="pdf-num">GUÍA #1 • INICIO RÁPIDO</span>
+            <span class="pdf-meta">Principiante • ~1h30</span>
+          </div>
+          <h3 class="pdf-title">Mini Muñeco de Nieve Navideño</h3>
+          <p class="pdf-desc">Tu primera victoria rápida con solo 3 colores de hilo (blanco, rojo y verde). Ideal para llaveros o colgar en el árbol.</p>
+        </div>
+        <div>
+          <div class="pdf-actions">
+            <a class="btn btn-secondary" href="pdfs/01_Mini_Muneco_Nieve_Navideno_ES.pdf" target="_blank" rel="noopener">📖 Abrir PDF</a>
+            <a class="btn btn-primary" href="pdfs/01_Mini_Muneco_Nieve_Navideno_ES.pdf" download>⬇ Descargar</a>
+          </div>
+          <label class="check-row"><input type="checkbox" data-check="g1" /> Marcar como tejida</label>
+        </div>
+      </article>
+
+      <article class="pdf-card" data-guide="g2">
+        <div>
+          <div class="pdf-top">
+            <span class="pdf-num">GUÍA #2 • CLÁSICO</span>
+            <span class="pdf-meta">67 Páginas • Con Fotos</span>
+          </div>
+          <h3 class="pdf-title">Papá Noel Amigurumi Paso a Paso</h3>
+          <p class="pdf-desc">Papá Noel que se sostiene de pie por sí solo, con lista de materiales exacta, barba detallada y paso a paso ilustrado.</p>
+        </div>
+        <div>
+          <div class="pdf-actions">
+            <a class="btn btn-secondary" href="pdfs/02_Papa_Noel_Amigurumi_ES.pdf" target="_blank" rel="noopener">📖 Abrir PDF</a>
+            <a class="btn btn-primary" href="pdfs/02_Papa_Noel_Amigurumi_ES.pdf" download>⬇ Descargar</a>
+          </div>
+          <label class="check-row"><input type="checkbox" data-check="g2" /> Marcar como tejida</label>
+        </div>
+      </article>
+
+      <article class="pdf-card" data-guide="g3">
+        <div>
+          <div class="pdf-top">
+            <span class="pdf-num">GUÍA #3 • KIT NAVIDAD</span>
+            <span class="pdf-meta">5 Patrones Clásicos</span>
+          </div>
+          <h3 class="pdf-title">5 Patrones de Amigurumis Navideños</h3>
+          <p class="pdf-desc">Incluye Árbol de Navidad, Papá Noel, Hombre de Jengibre, Elfo navideño y Muñeco de Nieve con cuerpo base fácil.</p>
+        </div>
+        <div>
+          <div class="pdf-actions">
+            <a class="btn btn-secondary" href="pdfs/03_5_Patrones_Navidad_Amigurumi_ES.pdf" target="_blank" rel="noopener">📖 Abrir PDF</a>
+            <a class="btn btn-primary" href="pdfs/03_5_Patrones_Navidad_Amigurumi_ES.pdf" download>⬇ Descargar</a>
+          </div>
+          <label class="check-row"><input type="checkbox" data-check="g3" /> Marcar como tejida</label>
+        </div>
+      </article>
+
+      <article class="pdf-card" data-guide="g4">
+        <div>
+          <div class="pdf-top">
+            <span class="pdf-num">GUÍA #4 • ALTO VALOR</span>
+            <span class="pdf-meta">188 Págs • Pesebre</span>
+          </div>
+          <h3 class="pdf-title">E-book Navidad Encantada</h3>
+          <p class="pdf-desc">Plaquitas decorativas de puerta y el <strong>Pesebre / Sagrada Familia</strong> completo (Niño Jesús, José, María y estructura).</p>
+        </div>
+        <div>
+          <div class="pdf-actions">
+            <a class="btn btn-secondary" href="pdfs/04_Ebook_Navidad_Encantada_ES.pdf" target="_blank" rel="noopener">📖 Abrir PDF</a>
+            <a class="btn btn-primary" href="pdfs/04_Ebook_Navidad_Encantada_ES.pdf" download>⬇ Descargar</a>
+          </div>
+          <label class="check-row"><input type="checkbox" data-check="g4" /> Marcar como tejida</label>
+        </div>
+      </article>
+
+      <article class="pdf-card" data-guide="g5">
+        <div>
+          <div class="pdf-top">
+            <span class="pdf-num">GUÍA #5 • COLECCIÓN</span>
+            <span class="pdf-meta">350 Págs • Sin Costuras</span>
+          </div>
+          <h3 class="pdf-title">40 Mini Amigurumis Sin Costuras</h3>
+          <p class="pdf-desc">Decenas de mini muñecos súper tiernos tejidos en una sola pieza, sin coser extremidades, rápidos de terminar y vender.</p>
+        </div>
+        <div>
+          <div class="pdf-actions">
+            <a class="btn btn-secondary" href="pdfs/05_40_Mini_Amigurumis_Sin_Costuras_ES.pdf" target="_blank" rel="noopener">📖 Abrir PDF</a>
+            <a class="btn btn-primary" href="pdfs/05_40_Mini_Amigurumis_Sin_Costuras_ES.pdf" download>⬇ Descargar</a>
+          </div>
+          <label class="check-row"><input type="checkbox" data-check="g5" /> Marcar como tejida</label>
+        </div>
+      </article>
+    </div>
+
+    <div class="glossary-card">
+      <h3>Diccionario Express de Siglas en Tus Guías</h3>
+      <div class="glossary-grid">
+        <div class="glossary-item"><strong>AM / am:</strong> Anillo mágico</div>
+        <div class="glossary-item"><strong>pb:</strong> Punto bajo</div>
+        <div class="glossary-item"><strong>aum:</strong> Aumento (2 pb juntos)</div>
+        <div class="glossary-item"><strong>dism:</strong> Disminución</div>
+        <div class="glossary-item"><strong>cad:</strong> Cadeneta</div>
+        <div class="glossary-item"><strong>pe / pbx:</strong> Punto deslizado / enano</div>
+      </div>
+    </div>
+
+    <!-- MODULE 2: COMPLEMENTARY VIDEO LIBRARY -->
+    <section class="section-header" id="videos">
+      <span class="section-eyebrow">Módulo 2 • Videoteca de Apoyo</span>
+      <h2>Clases Visuales de Puntos Básicos en Español</h2>
+      <p>Selección de tutoriales abiertos de apoyo para dominar el anillo mágico, aumentos, disminuciones invisibles y cambio de color antes de tejer tus PDFs.</p>
+    </section>
+
+    <div class="video-grid">
+      <article class="video-card">
+        <div class="video-frame" data-yt="QqKZLDk-4OY" data-title="Aprende el anillo mágico desde cero">
+          <img src="https://i.ytimg.com/vi/QqKZLDk-4OY/hqdefault.jpg" alt="Tutorial Anillo Mágico en Español" loading="lazy" />
+          <div class="play-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span>Ver clase aquí (3:48 min)</span>
+          </div>
+        </div>
+        <div class="video-body">
+          <span class="video-tag">CLASE 1 • DESDE CERO</span>
+          <h3>Aprende el anillo mágico desde cero</h3>
+          <p>Cómo iniciar cualquier mini muñeca redonda cerrando el centro sin dejar huecos. (Canal: Príncipe del Crochet)</p>
+          <a class="yt-fallback" href="https://www.youtube.com/watch?v=QqKZLDk-4OY" target="_blank" rel="noopener">Abrir directo en YouTube →</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame" data-yt="0PwTTR12AnI" data-title="Cómo hacer anillo mágico, aumentos o disminuciones">
+          <img src="https://i.ytimg.com/vi/0PwTTR12AnI/hqdefault.jpg" alt="Aumentos y Disminuciones Amigurumi" loading="lazy" />
+          <div class="play-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span>Ver clase aquí (18:52 min)</span>
+          </div>
+        </div>
+        <div class="video-body">
+          <span class="video-tag">CLASE 2 • BASE PERFECTA</span>
+          <h3>Aumentos y disminuciones para principiantes</h3>
+          <p>Técnica clara para dar forma a cabezas, cuerpos y bracitos sin marcas visibles. (Canal: Bleu Crochet)</p>
+          <a class="yt-fallback" href="https://www.youtube.com/watch?v=0PwTTR12AnI" target="_blank" rel="noopener">Abrir directo en YouTube →</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame" data-yt="gdMQAHk8Ens" data-title="Cambio de color perfecto para tus amigurumis">
+          <img src="https://i.ytimg.com/vi/gdMQAHk8Ens/hqdefault.jpg" alt="Cambio de Color Sin Escalón" loading="lazy" />
+          <div class="play-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span>Ver clase aquí (6:16 min)</span>
+          </div>
+        </div>
+        <div class="video-body">
+          <span class="video-tag">CLASE 3 • ACABADO PRO</span>
+          <h3>Cambio de color perfecto sin escalón</h3>
+          <p>Truco limpio para pasar del gorro rojo al rostro o al cinturón de Papá Noel. (Canal: MINOSKI - AMIGURUMI)</p>
+          <a class="yt-fallback" href="https://www.youtube.com/watch?v=gdMQAHk8Ens" target="_blank" rel="noopener">Abrir directo en YouTube →</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame" data-yt="9BNzqgGQ-Ws" data-title="Cómo Tejer Papá Noel Amigurumi Crochet Paso a Paso">
+          <img src="https://i.ytimg.com/vi/9BNzqgGQ-Ws/hqdefault.jpg" alt="Papá Noel Amigurumi Paso a Paso" loading="lazy" />
+          <div class="play-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span>Ver clase aquí (35:00 min)</span>
+          </div>
+        </div>
+        <div class="video-body">
+          <span class="video-tag">CLASE 4 • PRÁCTICA NAVIDEÑA</span>
+          <h3>Tutorial visual: Papá Noel paso a paso</h3>
+          <p>Guía audiovisual complementaria para ver cómo se arma la barba, gorro y detalles navideños. (Canal: Knitoys &amp; Crafts)</p>
+          <a class="yt-fallback" href="https://www.youtube.com/watch?v=9BNzqgGQ-Ws" target="_blank" rel="noopener">Abrir directo en YouTube →</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- MODULE 3: UPSELL STOREFRONT -->
+    <section class="section-header" id="ampliar">
+      <span class="section-eyebrow gold">Módulo 3 • Catálogo Exclusivo Para Alumnas</span>
+      <h2>Amplía Tu Taller y Vende Todo el Año 🔒</h2>
+      <p>Si te faltó alguno de estos complementos en tu compra, puedes desbloquearlo aquí con precio especial de alumna.</p>
+    </section>
+
+    <div class="upsell-grid">
+      <article class="upsell-card">
+        <div class="upsell-img-wrap">
+          <img src="assets/portal/02_OrderBump1_WhatsApp_Mobile_600x600.jpg" alt="Guía Vende por WhatsApp" loading="lazy" />
+          <span class="lock-badge">🔒 COMPLEMENTO</span>
+        </div>
+        <div class="upsell-body">
+          <h3>Guía Express: Vende por WhatsApp</h3>
+          <p>Tabla lista con costo, precio sugerido en USD, ganancia por muñeca y 3 textos para copiar y pegar en tus Estados hoy mismo.</p>
+          <div class="price-row">
+            <span class="price-old">$19.00</span>
+            <span class="price-now">$6.99 USD</span>
+          </div>
+          <a class="btn btn-gold" href="#" data-upsell="ob1">DESBLOQUEAR GUÍA →</a>
+        </div>
+      </article>
+
+      <article class="upsell-card">
+        <div class="upsell-img-wrap">
+          <img src="assets/portal/03_OrderBump2_DinosAnimalitos_Mobile_600x600.jpg" alt="Combo Animalitos y Dinosaurios +29 Patrones" loading="lazy" />
+          <span class="lock-badge">🔒 COMPLEMENTO</span>
+        </div>
+        <div class="upsell-body">
+          <h3>Combo Animalitos y Dinosaurios (+29 Patrones)</h3>
+          <p>14 dinosaurios populares y 15 animalitos tiernos paso a paso en español para seguir vendiendo cumpleaños y regalos todo el año.</p>
+          <div class="price-row">
+            <span class="price-old">$24.00</span>
+            <span class="price-now">$7.99 USD</span>
+          </div>
+          <a class="btn btn-gold" href="#" data-upsell="ob2">DESBLOQUEAR +29 MOLDES →</a>
+        </div>
+      </article>
+
+      <article class="upsell-card">
+        <div class="upsell-img-wrap">
+          <img src="assets/portal/04_Upsell_100Amigurumis_Mobile_600x600.jpg" alt="Colección +100 Amigurumis Personalizados" loading="lazy" />
+          <span class="lock-badge">🔒 VIP EXTRA</span>
+        </div>
+        <div class="upsell-body">
+          <h3>+100 Amigurumis Personalizados (20 Moldes Base)</h3>
+          <p>Combina cabezas, 5 poses de cuerpo y accesorios de granja, selva y fantasía para aceptar pedidos personalizados por encargo.</p>
+          <div class="price-row">
+            <span class="price-old">$29.00</span>
+            <span class="price-now">$3.99 USD</span>
+          </div>
+          <a class="btn btn-gold" href="#" data-upsell="upsell">DESBLOQUEAR +100 MODELOS →</a>
+        </div>
+      </article>
+    </div>
+
+    <footer class="portal-footer">
+      <strong>Mundo Amigurumi Navideño</strong> • Dirección Pedagógica: Maestra Lygia<br />
+      Acceso garantizado de por vida en Hotmart y en este Portal VIP.
+    </footer>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Menú inferior de la aplicación">
+    <a href="#guias" class="active"><span>📚</span><span>Guías PDF</span></a>
+    <a href="#videos"><span>🎬</span><span>Videoclases</span></a>
+    <a href="#ampliar"><span>🔒</span><span>Más Talleres</span></a>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // =========================================================================
+    // ENLACES HOTMART PARA COMPLEMENTOS (Reemplazar con tus checkouts reales)
+    // =========================================================================
+    const PORTAL_CHECKOUT_URLS = {
+      ob1: 'https://pay.hotmart.com/SEU_CHECKOUT_OB1_AQUI',
+      ob2: 'https://pay.hotmart.com/SEU_CHECKOUT_OB2_AQUI',
+      upsell: 'https://pay.hotmart.com/SEU_CHECKOUT_UPSELL_AQUI'
+    };
+
+    const toastEl = document.getElementById('toast');
+    let toastTimer = null;
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3200);
+    }
+
+    // 1. Interactive Progress Checklist (localStorage)
+    const STORAGE_KEY = 'taller_navideno_progreso_v1';
+    const checks = Array.from(document.querySelectorAll('input[data-check]'));
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+    function updateProgress() {
+      let doneCount = 0;
+      checks.forEach((cb) => {
+        const id = cb.dataset.check;
+        const card = cb.closest('.pdf-card');
+        if (cb.checked) {
+          doneCount += 1;
+          card && card.classList.add('done');
+        } else {
+          card && card.classList.remove('done');
+        }
+      });
+      const pct = Math.round((doneCount / checks.length) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressCount').textContent = `${doneCount} / ${checks.length} guías tejidas`;
+    }
+
+    checks.forEach((cb) => {
+      const id = cb.dataset.check;
+      cb.checked = Boolean(saved[id]);
+      cb.addEventListener('change', () => {
+        saved[id] = cb.checked;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+        updateProgress();
+        if (cb.checked) showToast('¡Excelente avance! Guía marcada como tejida.');
+      });
+    });
+    updateProgress();
+
+    // 2. Lite On-Click YouTube Embeds (fast mobile load + zero autoplay block)
+    document.querySelectorAll('.video-frame[data-yt]').forEach((box) => {
+      box.addEventListener('click', () => {
+        const vid = box.dataset.yt;
+        const title = box.dataset.title || 'Clase de Amigurumi';
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${vid}?autoplay=1&rel=0`;
+        iframe.title = title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        box.innerHTML = '';
+        box.appendChild(iframe);
+      }, { once: true });
+    });
+
+    // 3. Upsell Showcase Buttons
+    document.querySelectorAll('a[data-upsell]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const key = btn.dataset.upsell;
+        const url = PORTAL_CHECKOUT_URLS[key] || '';
+        if (!url || url.includes('SEU_CHECKOUT')) {
+          e.preventDefault();
+          showToast('Disponible al activar el complemento en Hotmart.');
+          return;
+        }
+        btn.href = url;
+        btn.target = '_blank';
+        btn.rel = 'noopener';
+      });
+    });
+
+    // 4. Bottom Nav Active State on Click
+    const navLinks = Array.from(document.querySelectorAll('.bottom-nav a'));
+    navLinks.forEach((lnk) => {
+      lnk.addEventListener('click', () => {
+        navLinks.forEach((x) => x.classList.remove('active'));
+        lnk.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -466,6 +466,7 @@
       width: 100%;
       user-select: none;
       min-height: 40px;
+      text-decoration: none;
     }
 
     .wa-btn-reply-icon {
@@ -1589,7 +1590,158 @@
         stream.appendChild(offerRow);
         scrollToBottom(false);
         setTimeout(() => scrollToBottom(false), 200);
+
+        // 8 seconds after offer appears, send interactive FAQ message with real YouTube doubts + step-by-step GIF
+        setTimeout(() => {
+          showTypingIndicator();
+          setTimeout(() => {
+            hideTypingIndicator();
+            renderFaqStep(true);
+          }, 1000);
+        }, 7000);
       }, 4000);
+    }
+
+    /* Top Repeated Doubts from Real Spanish YouTube Amigurumi Comments */
+    const faqItems = [
+      {
+        q: "🧶 ¿Qué hilo y ganchillo necesito?",
+        a: `Solo necesitas unos <strong>10 gramos</strong> de estambre o hilo de algodón (¡incluso sobrantes que ya tengas en casa!) y un ganchillo de <strong>3.0 mm a 4.0 mm</strong>. Si quieres que tu muñequita quede más chiquita (5 a 7 cm), usa ganchillo de 3.0 mm o 3.5 mm.`
+      },
+      {
+        q: "🌱 ¿Y si no sé hacer el anillo mágico?",
+        a: `¡No te preocupes para nada! Todas las guías traen fotos paso a paso en español. Y si el anillo mágico se te complica al inicio, puedes usar el <strong>truco fácil de las 2 cadenitas</strong>: haces 2 cadenas y tejes todos los puntos en la primera. ¡Queda igualito de cerrado!`
+      },
+      {
+        q: "👀 ¿Y si no tengo ojos ni marcador?",
+        a: `¡Con lo que tienes en casa puedes empezar hoy mismo! El marcador de puntos lo reemplazas con un <strong>pedacito de hilo de otro color</strong>, y los ojitos los puedes <strong>bordar con hilo negro</strong> (quedan preciosos y son 100% seguros si son para niños).`
+      },
+      {
+        q: "💰 ¿En cuánto los vendo y cómo cobro?",
+        a: `Cada mini llavero se vende fácil entre <strong>$8 y $12 USD</strong> (y la Sagrada Familia entre <strong>$25 y $38 USD</strong>). En la guía aprendes a calcular tu precio sin pena de cobrar — como dicen las maestras: <em>no cobras solo por el hilo, sino por tu arte hecho a mano</em>. 💛`
+      }
+    ];
+
+    const answeredFaqIndices = new Set();
+    let faqRenderCounter = 0;
+
+    function buildFaqButtonsHtml(stackId) {
+      const remaining = faqItems
+        .map((item, idx) => ({ item, idx }))
+        .filter(({ idx }) => !answeredFaqIndices.has(idx));
+      const list = remaining.length > 0 ? remaining : faqItems.map((item, idx) => ({ item, idx }));
+
+      const buttons = list.map(({ item, idx }) => `
+        <button class="wa-action-btn" onclick="handleFaqSelect(${idx}, '${stackId}')">
+          <svg class="wa-btn-reply-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
+          </svg>
+          <span>${item.q}</span>
+        </button>
+      `).join("");
+
+      return `<div class="wa-button-stack" id="${stackId}">${buttons}</div>`;
+    }
+
+    function renderFaqStep(includeGif = true) {
+      const stream = document.getElementById("chatStream");
+      const timeStr = getTimeString();
+      faqRenderCounter++;
+      const stackId = `faqStack_${faqRenderCounter}`;
+
+      const gifHtml = includeGif ? `
+        <div class="msg-video-wrap" style="aspect-ratio: 440 / 236;" onclick="openImageModal('assets/paso-a-paso-dudas.gif')" title="Toca para ver en grande">
+          <img src="assets/paso-a-paso-dudas.gif" alt="Ejemplo visual paso a paso de los puntos" onload="scrollToBottom(true)" />
+        </div>
+      ` : "";
+
+      const introText = includeGif
+        ? `¿Te quedó alguna dudita antes de empezar, mi corazón? 💕 Mira qué clarito se ve el paso a paso por dentro.<br/><br/>Muchas alumnas me preguntan lo mismo antes de tejer su primera muñequita — <strong>toca cualquier duda abajo</strong> y te respondo ahorita:`
+        : `Claro que sí, mi cielo 💕 ¿Qué otra dudita quieres aclarar antes de entrar al taller?`;
+
+      const row = document.createElement("div");
+      row.className = "msg-row msg-in";
+      row.id = includeGif ? "faqWelcomeCard" : `faqFollowup_${faqRenderCounter}`;
+      row.innerHTML = `
+        <div class="interactive-card">
+          <div class="interactive-body">
+            ${gifHtml}
+            <div>${introText}</div>
+          </div>
+          <div class="interactive-footer">
+            <span>Toca una pregunta abajo:</span>
+            <span class="msg-time">${timeStr}</span>
+          </div>
+          ${buildFaqButtonsHtml(stackId)}
+        </div>
+      `;
+
+      stream.appendChild(row);
+      scrollToBottom(true);
+      setTimeout(() => scrollToBottom(true), 180);
+    }
+
+    function handleFaqSelect(faqIdx, stackId) {
+      const item = faqItems[faqIdx];
+      if (!item) return;
+      answeredFaqIndices.add(faqIdx);
+
+      const stack = document.getElementById(stackId);
+      if (stack) {
+        const btns = stack.querySelectorAll(".wa-action-btn");
+        btns.forEach((btn) => {
+          btn.classList.add("disabled");
+          btn.onclick = null;
+          if (!btn.textContent.includes(item.q)) {
+            btn.style.opacity = "0.45";
+          }
+        });
+      }
+
+      const stream = document.getElementById("chatStream");
+      const userRow = document.createElement("div");
+      userRow.className = "msg-row msg-out";
+      userRow.innerHTML = `
+        <div class="bubble bubble-out">
+          <span>${item.q}</span>
+          <span class="msg-time">${getTimeString()} ${doubleCheckSvg}</span>
+        </div>
+      `;
+      stream.appendChild(userRow);
+      scrollToBottom(true);
+
+      showTypingIndicator();
+      setTimeout(() => {
+        hideTypingIndicator();
+        const checkoutUrl = getCheckoutUrl();
+        const hasMore = answeredFaqIndices.size < faqItems.length;
+        const answerRow = document.createElement("div");
+        answerRow.className = "msg-row msg-in";
+        answerRow.innerHTML = `
+          <div class="interactive-card">
+            <div class="interactive-body">
+              <div>${item.a}</div>
+            </div>
+            <div class="interactive-footer">
+              <span>Maestra Lygia</span>
+              <span class="msg-time">${getTimeString()}</span>
+            </div>
+            <div class="wa-button-stack">
+              <a href="${checkoutUrl}" onclick="trackEvent('InitiateCheckout')" class="wa-action-btn" style="font-weight:700; color:#008069;">
+                <span>✅ ¡Listo, quiero mi acceso por $14.99! →</span>
+              </a>
+              ${hasMore ? `
+                <button class="wa-action-btn" onclick="this.classList.add('disabled'); this.onclick=null; renderFaqStep(false);">
+                  <span>❓ Ver otra duda</span>
+                </button>
+              ` : ""}
+            </div>
+          </div>
+        `;
+        stream.appendChild(answerRow);
+        scrollToBottom(true);
+        setTimeout(() => scrollToBottom(true), 150);
+      }, 950);
     }
 
     function handleOptionSelect(idx) {

@@ -722,25 +722,11 @@
       margin-bottom: 5px;
     }
 
-    .catalog-timer {
-      background: #ffebee;
-      color: var(--primary-red);
-      font-size: 11.5px;
-      font-weight: 700;
-      padding: 5px 8px;
-      border-radius: 6px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .catalog-clock {
-      font-family: monospace;
-      font-size: 13px;
-      background: #ffcdd2;
-      padding: 1px 5px;
-      border-radius: 3px;
+    .mini-showcase-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #075e54;
+      margin-bottom: 6px;
     }
 
     .sample-pattern {
@@ -748,10 +734,9 @@
       border: 1px dashed #cbd5e1;
       border-radius: 6px;
       padding: 7px 9px;
-      font-family: monospace;
-      font-size: 11.5px;
-      line-height: 1.45;
-      margin-bottom: 8px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 10px;
     }
 
     .sample-pattern mark {
@@ -1154,24 +1139,6 @@
       answers: {}
     };
 
-    let countdownInterval = null;
-    let secondsLeft = 14 * 60 + 59;
-
-    function startTimer() {
-      if (countdownInterval) clearInterval(countdownInterval);
-      countdownInterval = setInterval(() => {
-        if (secondsLeft <= 0) {
-          clearInterval(countdownInterval);
-          return;
-        }
-        secondsLeft--;
-        const mins = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
-        const secs = String(secondsLeft % 60).padStart(2, '0');
-        const el = document.getElementById("timerClock");
-        if (el) el.textContent = `${mins}:${secs}`;
-      }, 1000);
-    }
-
     /* Real WhatsApp Audio Note Player (Authentic Duration & Counting to End) */
     let realAudio = null;
     let isPlayingAudio = false;
@@ -1569,38 +1536,14 @@
           <div class="catalog-card">
             <img src="assets/kit-mockup.jpg" alt="Kit Navideño" class="catalog-mockup" />
             
-            <div class="catalog-timer">
-              <span>🎄 Cupo promocional vence en:</span>
-              <span class="catalog-clock" id="timerClock">14:59</span>
-            </div>
-
-            <h3 class="catalog-title">Colección Completa: Mini Muñecas & Amigurumis Navideños</h3>
-            <p style="font-size:12.5px;color:#54656f;margin-bottom:8px;line-height:1.4;">
-              Aprenderás la técnica <strong>sin costuras</strong> para tejer tus primeras mini piezas en menos de 2 horas sin enredarte en los puntos.
-            </p>
-
-            <div class="sample-pattern">
-              <strong>Vistazo al Patrón (Sin Abreviaturas Raras):</strong><br/>
-              • Vta 1: 6 pb en anillo mágico <mark>[6]</mark><br/>
-              • Vta 2: 6 aumentos (2 pb en c/punto) <mark>[12]</mark><br/>
-              • Vta 3: (1 pb, 1 aum) x 6 <mark>[18]</mark><br/>
-              <em>*¡Con fotos paso a paso en cada vuelta!</em>
-            </div>
-
-            <div class="mini-showcase">
-              <div class="mini-card">🎅 <strong>Mini Santa</strong><span>Vende por $8-$12</span></div>
-              <div class="mini-card">😇 <strong>Angelito</strong><span>Vende por $7-$10</span></div>
-              <div class="mini-card">⛪ <strong>Sagrada Familia</strong><span>Vende por $25-$38</span></div>
-              <div class="mini-card">🦌 <strong>Mini Reno</strong><span>Vende por $8-$12</span></div>
-            </div>
+            <h3 class="catalog-title">Colección Completa: Mini Muñecas &amp; Amigurumis Navideños</h3>
 
             <div class="value-stack">
               <div class="value-stack-title">Lo que recibes hoy:</div>
               <ul>
-                <li><strong>+45 patrones</strong> de mini muñecas y amigurumis navideños (Santa, Reno, Elfo, Muñeco de Nieve y más)</li>
-                <li>Técnica <strong>sin costuras</strong>: tejes cada pieza en menos de 2 horas</li>
-                <li><strong>Todo en español</strong>, con fotos paso a paso en cada vuelta</li>
-                <li>Acceso inmediato en PDF, para siempre, desde tu celular</li>
+                <li><strong>+45 patrones</strong> de mini muñecas navideñas (Santa, Reno, Elfo, Muñeco de Nieve y más)</li>
+                <li><strong>Sin costuras</strong>: cada pieza en menos de 2 horas</li>
+                <li><strong>Todo en español</strong>, con fotos paso a paso, en PDF para siempre</li>
               </ul>
               <div class="value-stack-xmas">🎄 ${getDaysToChristmasText()}</div>
             </div>
@@ -1618,12 +1561,31 @@
             <div class="guarantee-note">
               🛡️ Garantía de 7 días • Reembolso en 1 clic
             </div>
+
+            <div class="sample-pattern" style="margin-top:14px;">
+              <strong>Así de claro es el patrón (sin siglas raras):</strong><br/>
+              • Vuelta 1: 6 puntos bajos en anillo mágico <mark>[6]</mark><br/>
+              • Vuelta 2: 6 aumentos <mark>[12]</mark><br/>
+              • Vuelta 3: (1 punto bajo, 1 aumento) x 6 <mark>[18]</mark><br/>
+              <em>Con fotos paso a paso en cada vuelta.</em>
+            </div>
+
+            <div class="mini-showcase-title">Lo que puedes vender con estos patrones:</div>
+            <div class="mini-showcase">
+              <div class="mini-card">🎅 <strong>Mini Santa</strong><span>Vende por $8-$12</span></div>
+              <div class="mini-card">😇 <strong>Angelito</strong><span>Vende por $7-$10</span></div>
+              <div class="mini-card">⛪ <strong>Sagrada Familia</strong><span>Vende por $25-$38</span></div>
+              <div class="mini-card">🦌 <strong>Mini Reno</strong><span>Vende por $8-$12</span></div>
+            </div>
+
+            <a href="${checkoutUrl}" onclick="trackEvent('InitiateCheckout')" class="big-checkout-cta">
+              ¡QUIERO MI ACCESO POR $14.99! →
+            </a>
           </div>
         `;
         stream.appendChild(offerRow);
         scrollToBottom(false);
         setTimeout(() => scrollToBottom(false), 200);
-        startTimer();
       }, 4000);
     }
 

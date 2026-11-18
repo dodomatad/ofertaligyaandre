@@ -1170,7 +1170,7 @@
         realAudio.addEventListener("ended", () => {
           isPlayingAudio = false;
           if (playIcon) playIcon.textContent = "▶";
-          const totalSecs = Math.round(realAudio.duration || 22);
+          const totalSecs = Math.round(realAudio.duration || 17);
           if (timeLabel) timeLabel.textContent = formatAudioTime(totalSecs);
           if (micBadge) micBadge.classList.add("played");
           bars.forEach(b => b.classList.add("active"));
@@ -1483,7 +1483,7 @@
                 <div class="audio-bar" style="height:5px;"></div>
               </div>
               <div class="audio-timer-row">
-                <span id="audioTimeLabel">0:22</span>
+                <span id="audioTimeLabel">0:17</span>
                 <span>Nota de voz</span>
               </div>
             </div>

@@ -1,0 +1,30 @@
+# Temporary test videos and frames
+*_frame_*.jpg
+crop_test_*.jpg
+later_test_*.jpg
+test_*.mp4
+test_*.webm
+test_*.jpg
+test_gifs/
+test_clip1.webm
+cropped_sample.jpg
+doll_crochet_frame_*.jpg
+doll_frame_*.jpg
+gif_frame_*.jpg
+greta_frame_*.jpg
+hands_frame_*.jpg
+part2_frame_*.jpg
+part3_frame_*.jpg
+rein_frame_*.jpg
+santa_frame_*.jpg
+santa_show_frame_*.jpg
+seq_frame_*.jpg
+stitch_frame_*.jpg
+
+# Vercel
+.vercel
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.log

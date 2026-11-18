@@ -832,6 +832,51 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
+      white-space: nowrap;
+    }
+
+    /* Value stack: what she receives (perceived value before the price) */
+    .value-stack {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 9px 10px;
+      margin-bottom: 10px;
+    }
+
+    .value-stack-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #075e54;
+      margin-bottom: 6px;
+    }
+
+    .value-stack ul {
+      list-style: none;
+    }
+
+    .value-stack li {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #111b21;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .value-stack li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-weight: 800;
+    }
+
+    .value-stack-xmas {
+      margin-top: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b52f2f;
     }
 
     /* WhatsApp Android Native Bottom Input Bar */
@@ -1065,6 +1110,18 @@
       const h = String(now.getHours()).padStart(2, '0');
       const m = String(now.getMinutes()).padStart(2, '0');
       return `${h}:${m}`;
+    }
+
+    /* Real, verifiable urgency (seasonal): days left until Christmas */
+    function getDaysToChristmasText() {
+      const now = new Date();
+      let xmas = new Date(now.getFullYear(), 11, 25);
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      if (today > xmas) xmas = new Date(now.getFullYear() + 1, 11, 25);
+      const days = Math.round((xmas - today) / 86400000);
+      if (days === 0) return "¡Hoy es Navidad!";
+      if (days === 1) return "Falta solo 1 día para Navidad: empieza hoy";
+      return `Faltan solo ${days} días para Navidad: empieza hoy y llega a tiempo`;
     }
 
     function scrollToBottom(smooth = false) {
@@ -1537,6 +1594,17 @@
               <div class="mini-card">🦌 <strong>Mini Reno</strong><span>Vende por $8-$12</span></div>
             </div>
 
+            <div class="value-stack">
+              <div class="value-stack-title">Lo que recibes hoy:</div>
+              <ul>
+                <li><strong>+45 patrones</strong> de mini muñecas y amigurumis navideños (Santa, Reno, Elfo, Muñeco de Nieve y más)</li>
+                <li>Técnica <strong>sin costuras</strong>: tejes cada pieza en menos de 2 horas</li>
+                <li><strong>Todo en español</strong>, con fotos paso a paso en cada vuelta</li>
+                <li>Acceso inmediato en PDF, para siempre, desde tu celular</li>
+              </ul>
+              <div class="value-stack-xmas">🎄 ${getDaysToChristmasText()}</div>
+            </div>
+
             <div class="catalog-price-box">
               <div class="old-price">De $47.00 USD por sólo</div>
               <div class="new-price">$14.99 USD</div>
@@ -1548,7 +1616,7 @@
             </a>
 
             <div class="guarantee-note">
-              🛡️ Garantía incondicional de 7 días • Reembolso en 1 clic
+              🛡️ Garantía de 7 días • Reembolso en 1 clic
             </div>
           </div>
         `;

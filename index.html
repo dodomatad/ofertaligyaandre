@@ -1097,7 +1097,8 @@
       return `${h}:${m}`;
     }
 
-    /* Real, verifiable urgency (seasonal): days left until Christmas */
+    /* Real, verifiable urgency (seasonal): time left until Christmas, in friendly buckets
+       (so the text stays true for many days without a changing exact number) */
     function getDaysToChristmasText() {
       const now = new Date();
       let xmas = new Date(now.getFullYear(), 11, 25);
@@ -1106,7 +1107,13 @@
       const days = Math.round((xmas - today) / 86400000);
       if (days === 0) return "¡Hoy es Navidad!";
       if (days === 1) return "Falta solo 1 día para Navidad: empieza hoy";
-      return `Faltan solo ${days} días para Navidad: empieza hoy y llega a tiempo`;
+      if (days >= 60) return "Prepárate con tiempo para la próxima Navidad: empieza hoy";
+      if (days >= 45) return "Faltan casi 2 meses para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 28) return "Falta 1 mes para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 21) return "Faltan 3 semanas para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 14) return "Faltan 2 semanas para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 7) return "Falta 1 semana para Navidad: empieza hoy y llega a tiempo";
+      return "Faltan pocos días para Navidad: empieza hoy y llega a tiempo";
     }
 
     function scrollToBottom(smooth = false) {

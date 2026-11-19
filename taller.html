@@ -1089,9 +1089,9 @@
 
   <script>
     const PORTAL_CHECKOUT_URLS = {
-      ob1: 'https://pay.hotmart.com/SEU_CHECKOUT_OB1_AQUI',
-      ob2: 'https://pay.hotmart.com/SEU_CHECKOUT_OB2_AQUI',
-      upsell: 'https://pay.hotmart.com/SEU_CHECKOUT_UPSELL_AQUI'
+      ob1: 'https://pay.cakto.com.br/bx5zm88_1345655',
+      ob2: 'https://pay.cakto.com.br/9sqpmje_1345660',
+      upsell: 'https://pay.cakto.com.br/msra3h5_1345669'
     };
 
     const toastEl = document.getElementById('toast');
@@ -1152,17 +1152,18 @@
     });
 
     document.querySelectorAll('a[data-upsell]').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const key = btn.dataset.upsell;
-        const url = PORTAL_CHECKOUT_URLS[key] || '';
-        if (!url || url.includes('SEU_CHECKOUT')) {
-          e.preventDefault();
-          showToast('Disponible al completar tu pedido en el checkout oficial.');
-          return;
-        }
+      const key = btn.dataset.upsell;
+      const url = PORTAL_CHECKOUT_URLS[key] || '';
+      if (url && !url.includes('SEU_CHECKOUT')) {
         btn.href = url;
         btn.target = '_blank';
         btn.rel = 'noopener';
+      }
+      btn.addEventListener('click', (e) => {
+        if (!url || url.includes('SEU_CHECKOUT')) {
+          e.preventDefault();
+          showToast('Disponible al completar tu pedido en el checkout oficial.');
+        }
       });
     });
 

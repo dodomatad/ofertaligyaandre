@@ -992,8 +992,8 @@
         <div class="wa-contact-info">
           <div class="wa-contact-name">
             <span>Maestra Lygia</span>
-            <!-- Official WhatsApp Web Verified Circular Checkmark SVG -->
-            <svg class="wa-verified-icon" viewBox="0 0 18 18" width="16" height="16" fill="none" title="Cuenta comercial oficial">
+            <!-- Verified Checkmark SVG -->
+            <svg class="wa-verified-icon" viewBox="0 0 18 18" width="16" height="16" fill="none" aria-hidden="true">
               <circle cx="9" cy="9" r="9" fill="#00a884"/>
               <path d="M13.14 6.71l-5 5c-.11.11-.25.16-.39.16s-.28-.05-.39-.16l-2.5-2.5a.552.552 0 010-.78.552.552 0 01.78 0L7.31 10.4l4.61-4.61c.21-.21.57-.21.78 0 .21.21.21.57 0 .78z" fill="#ffffff"/>
             </svg>
@@ -1030,7 +1030,7 @@
         <svg viewBox="0 0 24 24" width="12" height="12" fill="#54656f" style="flex-shrink:0;">
           <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
         </svg>
-        <span>Los mensajes en este chat están cifrados de extremo a extremo. Toca los botones para responder a la Maestra Lygia.</span>
+        <span>Chat interactivo oficial de Maestra Lygia. Toca los botones abajo para responder.</span>
       </div>
     </main>
 
@@ -1081,13 +1081,27 @@
   </div>
 
   <script>
-    const CHECKOUT_BASE_URL = "https://pay.hotmart.com/SEU_CHECKOUT_AQUI";
+    const CHECKOUT_BASE_URL = "https://pay.cakto.com.br/3nopg6v_1345306";
+
+    (function persistInboundTrackingParams() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.toString()) {
+          sessionStorage.setItem("amig_utm_qs", params.toString());
+        }
+      } catch (e) {}
+    })();
 
     function getCheckoutUrl() {
-      const qs = window.location.search;
+      let qs = window.location.search.replace(/^\?/, "");
+      if (!qs) {
+        try {
+          qs = sessionStorage.getItem("amig_utm_qs") || "";
+        } catch (e) {}
+      }
       if (!qs) return CHECKOUT_BASE_URL;
       const sep = CHECKOUT_BASE_URL.includes("?") ? "&" : "?";
-      return CHECKOUT_BASE_URL + sep + qs.replace(/^\?/, "");
+      return CHECKOUT_BASE_URL + sep + qs;
     }
 
     function trackEvent(eventName) {
@@ -1308,7 +1322,7 @@
         text: `Con ese tiempo te sobra para tejer de 3 a 5 mini piezas por semana. 🧶<br/><br/>Para que nunca te trabes en ningún punto y termines tu primera muñequita hoy mismo, <strong>¿cómo prefieres que te enseñe?</strong>`,
         footer: "Elige cómo te gusta aprender:",
         options: [
-          "🎥 Video paso a paso en cámara lenta",
+          "📖 Guías ilustradas en PDF + videoteca",
           "📑 Patrón PDF escrito vuelta por vuelta",
           "🎯 ¡Quiero ambos juntos (Video + PDF)!"
         ]
@@ -1564,7 +1578,7 @@
             <div class="catalog-price-box">
               <div class="old-price">De $47.00 USD por sólo</div>
               <div class="new-price">$14.99 USD</div>
-              <div class="price-sub">Pago único • Acceso de por vida en Hotmart (o en tu moneda local)</div>
+              <div class="price-sub">Pago único • Acceso inmediato de por vida (o en tu moneda local)</div>
             </div>
 
             <a href="${checkoutUrl}" onclick="trackEvent('InitiateCheckout')" class="big-checkout-cta">
@@ -1572,7 +1586,8 @@
             </a>
 
             <div class="guarantee-note">
-              🛡️ Garantía de 7 días • Reembolso en 1 clic
+              🛡️ Garantía de 7 días • Reembolso 100% garantizado<br/>
+              <span style="font-size:10.5px; color:#667781;">Soporte: teixeiraligya@gmail.com • Pago internacional seguro</span>
             </div>
 
             <div class="sample-pattern" style="margin-top:14px;">

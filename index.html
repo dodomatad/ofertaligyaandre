@@ -9,6 +9,21 @@
   <meta property="og:site_name" content="Mundo Amigurumi Navideño" />
   <meta property="og:description" content="Aprende Amigurumis Navideños desde cero y genera ingresos extra esta Navidad." />
   <meta property="og:type" content="website" />
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1858854959583499');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1858854959583499&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
   <style>
     :root {
       --wa-teal-dark: #075e54;
@@ -1104,10 +1119,19 @@
       return CHECKOUT_BASE_URL + sep + qs;
     }
 
-    function trackEvent(eventName) {
-      if (typeof window.fbq === "function") {
-        window.fbq("track", eventName);
+    function trackEvent(eventName, customParams) {
+      if (typeof window.fbq !== "function") return;
+      if (eventName === "InitiateCheckout") {
+        window.fbq("track", "InitiateCheckout", customParams || {
+          value: 14.99,
+          currency: "USD",
+          content_name: "Colección Completa: Mini Muñecas y Amigurumis Navideños",
+          content_category: "Amigurumis",
+          num_items: 1
+        });
+        return;
       }
+      window.fbq("track", eventName, customParams || undefined);
     }
 
     function getTimeString() {

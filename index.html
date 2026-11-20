@@ -1097,26 +1097,50 @@
 
   <script>
     const CHECKOUT_BASE_URL = "https://pay.cakto.com.br/3nopg6v_1345306";
+    const UTM_STORAGE_KEY = "amig_utm_qs_v2";
 
     (function persistInboundTrackingParams() {
       try {
         const params = new URLSearchParams(window.location.search);
         if (params.toString()) {
-          sessionStorage.setItem("amig_utm_qs", params.toString());
+          sessionStorage.setItem(UTM_STORAGE_KEY, params.toString());
+          localStorage.setItem(UTM_STORAGE_KEY, params.toString());
         }
       } catch (e) {}
     })();
 
     function getCheckoutUrl() {
-      let qs = window.location.search.replace(/^\?/, "");
-      if (!qs) {
+      let base = CHECKOUT_BASE_URL;
+      try {
+        const anchor = document.getElementById("caktoTrackerAnchor");
+        if (anchor && anchor.href && anchor.href.indexOf("pay.cakto.com.br") !== -1) {
+          base = anchor.href;
+        }
+      } catch (e) {}
+
+      let inboundQs = window.location.search.replace(/^\?/, "");
+      if (!inboundQs) {
         try {
-          qs = sessionStorage.getItem("amig_utm_qs") || "";
+          inboundQs = sessionStorage.getItem(UTM_STORAGE_KEY) || localStorage.getItem(UTM_STORAGE_KEY) || "";
         } catch (e) {}
       }
-      if (!qs) return CHECKOUT_BASE_URL;
-      const sep = CHECKOUT_BASE_URL.includes("?") ? "&" : "?";
-      return CHECKOUT_BASE_URL + sep + qs;
+
+      try {
+        const finalUrl = new URL(base);
+        if (inboundQs) {
+          const inboundParams = new URLSearchParams(inboundQs);
+          inboundParams.forEach((value, key) => {
+            if (value !== "" && !finalUrl.searchParams.has(key)) {
+              finalUrl.searchParams.set(key, value);
+            }
+          });
+        }
+        return finalUrl.toString();
+      } catch (e) {
+        if (!inboundQs) return CHECKOUT_BASE_URL;
+        const sep = CHECKOUT_BASE_URL.includes("?") ? "&" : "?";
+        return CHECKOUT_BASE_URL + sep + inboundQs;
+      }
     }
 
     function trackEvent(eventName, customParams) {
@@ -1132,6 +1156,46 @@
         return;
       }
       window.fbq("track", eventName, customParams || undefined);
+    }
+
+    function trackCustomStep(stepName, params) {
+      if (typeof window.fbq !== "function") return;
+      try {
+        window.fbq("trackCustom", stepName, params || {});
+      } catch (e) {}
+    }
+
+    let checkoutRedirectPending = false;
+    function handleCheckoutClick(event, anchorEl, sourceTag) {
+      const finalUrl = getCheckoutUrl();
+      if (anchorEl) {
+        anchorEl.href = finalUrl;
+      }
+
+      trackEvent("InitiateCheckout", {
+        value: 14.99,
+        currency: "USD",
+        content_name: "Colección Completa: Mini Muñecas y Amigurumis Navideños",
+        content_category: "Amigurumis",
+        num_items: 1,
+        cta_source: sourceTag || "offer_main"
+      });
+
+      // Allow Ctrl/Cmd/middle-click to open natively in new tab
+      if (event && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button === 1)) {
+        return true;
+      }
+
+      if (event) event.preventDefault();
+      if (checkoutRedirectPending) return false;
+      checkoutRedirectPending = true;
+
+      // Guarantee Meta Pixel Beacon flushes before leaving in-app browser (IG/FB)
+      setTimeout(() => {
+        window.location.href = finalUrl;
+        setTimeout(() => { checkoutRedirectPending = false; }, 2000);
+      }, 180);
+      return false;
     }
 
     function getTimeString() {
@@ -1281,80 +1345,38 @@
       }
     }
 
-    /* Conversational Script (Natural Latin American Spanish) */
+    /* Conversational Script — Streamlined High-Conversion Flow (Max 2 taps to Offer & Checkout) */
     const chatScript = [
       /* Step 0: Welcome Video & Question 1 */
       {
         key: "nivel",
         videoWrap: true,
-        text: `¡Hola mi cielo! Bienvenida a mi taller navideño 🎄❤️ Cierra tus ojos e imagina tejer tus primeras mini muñequitas en menos de 2 horas y ver cómo se venden como pan caliente en diciembre.<br/><br/>Dime con toda confianza: <strong>¿tienes experiencia con el ganchillo o empezamos juntas desde el primer puntito?</strong>`,
-        footer: "Selecciona una opción abajo:",
+        text: `¡Hola mi cielo! Bienvenida a mi taller navideño 🎄❤️ Imagina tejer tus primeras <strong>mini muñequitas sin costuras en menos de 2 horas</strong> y venderlas entre $8 y $12 USD esta Navidad.<br/><br/>Dime con confianza: <strong>¿tienes experiencia con el ganchillo o quieres ver directo los +45 patrones en PDF?</strong>`,
+        footer: "Toca una opción abajo:",
         options: [
-          "🌱 Empezar desde cero",
-          "🧶 Ya sé lo básico",
-          "⚡ Patrones para vender rápido"
+          "🌱 Empezar desde cero (paso a paso)",
+          "🧶 Ya sé lo básico y quiero patrones",
+          "⚡ Ver los +45 patrones ahora mismo"
         ]
       },
 
-      /* Step 1: Goal / Motivation */
+      /* Step 1: Goal & Pain Combined (1 tap -> Social Proof + Offer immediately) */
       {
         key: "objetivo",
-        text: `¡Perfecto, te entiendo totalmente! No te preocupes, aquí no usamos términos raros ni te dejamos sola. 🥰<br/><br/>Y si pudieras pedir un deseo hoy... <strong>¿cuál sería el mayor logro de tu tejido en este fin de año?</strong>`,
-        footer: "Toca tu opción favorita:",
+        text: `¡Perfecto, te entiendo totalmente! Aquí todos los patrones vienen <strong>vuelta por vuelta en español claro, sin siglas raras y sin costuras</strong>. 🥰<br/><br/>Última preguntita: <strong>¿qué es lo que más deseas lograr con tu tejido esta Navidad?</strong>`,
+        footer: "Toca tu opción para ver tu kit:",
         options: [
-          "💰 Ganar dinerito extra a diario",
-          "🎁 Dar hermosos regalos a mi familia",
-          "☕ Mi rinconcito de paz y terapia"
+          "💰 Ganar dinero extra vendiendo mini llaveros",
+          "🎁 Tejer regalos únicos y decorar mi casa",
+          "⚡ Terminar piezas lindas en menos de 2 horas"
         ]
       },
 
-      /* Step 2: Pain / Desahogo */
+      /* Step 2: Real WhatsApp Social Proof + Immediate Offer */
       {
-        key: "dor",
-        text: `Qué hermoso deseo... eso es lo más lindo del tejido hecho con amor. ❤️<br/><br/>Pero desahógate conmigo: <strong>¿qué es lo que más te desanima o te da miedo al pensar en tejer para Navidad?</strong>`,
-        footer: "Selecciona lo que más te pasa:",
-        options: [
-          "😟 Miedo a comprar estambre y no vender",
-          "⏰ Muñecas gigantes de 30cm me cansan",
-          "📄 Patrones enredados con siglas raras",
-          "🏷️ Me da pena cobrar o poner precio"
-        ]
-      },
-
-      /* Step 3: Forwarded Real WhatsApp Screenshot Social Proof */
-      {
-        type: "social_proof",
-        text: `¡Tranquila mi niña! No es tu culpa. La mayoría se cansa porque intenta tejer muñecas gigantes de 30cm que demoran 4 días. Las <strong>Mini Muñecas y Llaveros (5 a 10 cm)</strong> quedan listas en menos de 2 horas y se venden solas.<br/><br/>Mira la captura de la plática que tuve ayer con <strong>Carla Mendoza</strong>, una de mis alumnas que empezó desde cero el mes pasado:`,
+        type: "social_proof_and_offer",
+        text: `¡Hermosa elección! ❤️ La mayoría se cansa tejiendo muñecas gigantes de 30 cm que demoran 4 días. Nuestras <strong>Mini Muñecas (5 a 10 cm)</strong> no llevan costuras, quedan listas en menos de 2 horas y se venden solas.<br/><br/>Mira la plática real con <strong>Carla Mendoza</strong> (empezó desde cero):`,
         imageSrc: "assets/print-conversacion-carla.jpg"
-      },
-
-      /* Step 4: Available Time */
-      {
-        key: "tempo",
-        text: `¿Ves qué hermosura? Y Carla empezó sin saber ni sostener el estambre. Tú también puedes lograrlo. ✨<br/><br/>Entre la casa, la comida, el trabajo y la familia... <strong>¿cuánto tiempecito libre puedes dedicarte al día?</strong>`,
-        footer: "¿Cuánto tiempo tienes?",
-        options: [
-          "⏱️ Unos 30 minutitos al día",
-          "🕯️ 1 a 2 horitas por la noche",
-          "📅 Una tarde el fin de semana"
-        ]
-      },
-
-      /* Step 5: Format Preference */
-      {
-        key: "formato",
-        text: `Con ese tiempo te sobra para tejer de 3 a 5 mini piezas por semana. 🧶<br/><br/>Para que nunca te trabes en ningún punto y termines tu primera muñequita hoy mismo, <strong>¿cómo prefieres que te enseñe?</strong>`,
-        footer: "Elige cómo te gusta aprender:",
-        options: [
-          "📖 Guías ilustradas en PDF + videoteca",
-          "📑 Patrón PDF escrito vuelta por vuelta",
-          "🎯 ¡Quiero ambos juntos (Video + PDF)!"
-        ]
-      },
-
-      /* Step 6: Final Offer */
-      {
-        type: "offer"
       }
     ];
 
@@ -1444,27 +1466,8 @@
       setTimeout(() => scrollToBottom(false), 350);
     }
 
-    let carlaAutoTimer = null;
-    function handleCarlaContinue() {
-      if (carlaAutoTimer) clearTimeout(carlaAutoTimer);
-      carlaAutoTimer = null;
-      const btn = document.getElementById("carlaContinueBtn");
-      if (btn) {
-        btn.classList.add("disabled");
-        btn.onclick = null;
-      }
-      state.stepIndex++;
-      const nextStepData = chatScript[state.stepIndex];
-      if (nextStepData) {
-        showTypingIndicator();
-        setTimeout(() => {
-          hideTypingIndicator();
-          renderInteractiveStep(nextStepData);
-        }, 1200);
-      }
-    }
-
-    function renderSocialProofStep(stepData) {
+    let offerAlreadyRendered = false;
+    function renderSocialProofAndOfferStep(stepData) {
       const stream = document.getElementById("chatStream");
       const timeStr = getTimeString();
 
@@ -1494,25 +1497,29 @@
               <img src="${stepData.imageSrc}" alt="Captura de WhatsApp con Carla" class="media-photo" onload="scrollToBottom(false)" />
               <div class="media-time-badge">${timeStr}</div>
             </div>
-            <button class="wa-action-btn" id="carlaContinueBtn" onclick="handleCarlaContinue()" style="border-top:1px solid var(--wa-border-light); margin-top:4px; font-weight:600;">
-              <span>Continuar nuestra plática</span>
-            </button>
           </div>
         `;
         stream.appendChild(row2);
         scrollToBottom(false);
         setTimeout(() => scrollToBottom(false), 100);
-        setTimeout(() => scrollToBottom(false), 300);
 
-        // Auto-advance after 3.5s if senior doesn't tap
-        carlaAutoTimer = setTimeout(() => {
-          handleCarlaContinue();
-        }, 3500);
-      }, 1000);
+        // Immediately flow into the Offer Card (zero extra tap friction)
+        showTypingIndicator();
+        setTimeout(() => {
+          hideTypingIndicator();
+          renderOfferStep();
+        }, 900);
+      }, 650);
     }
 
     function renderOfferStep() {
-      trackEvent("Lead");
+      if (offerAlreadyRendered) return;
+      offerAlreadyRendered = true;
+      trackEvent("Lead", { content_name: "Quiz_Completed_Offer_Shown" });
+      trackCustomStep("Quiz_Offer_Shown", {
+        nivel: state.answers.nivel || "direct",
+        objetivo: state.answers.objetivo || "direct"
+      });
       const stream = document.getElementById("chatStream");
       const timeStr = getTimeString();
       const checkoutUrl = getCheckoutUrl();
@@ -1563,7 +1570,7 @@
               </div>
             </div>
           </div>
-          <p style="margin-top:6px;">¡Listo mi vida! 🎉 Ya preparé tu plan personalizado para este fin de año. Mira todo lo que incluye tu kit de Navidad:</p>
+          <p style="margin-top:6px;">¡Listo mi vida! 🎉 Ya preparé tu kit navideño completo. Mira todo lo que recibes hoy con acceso inmediato:</p>
           <span class="msg-time">${timeStr}</span>
         </div>
       `;
@@ -1575,12 +1582,13 @@
         if (!isPlayingAudio) {
           toggleAudioPlayback();
         }
-      }, 350);
+      }, 250);
 
       showTypingIndicator();
-      // Delay offer presentation by 4 seconds (4000ms)
+      // Fast offer reveal (700ms instead of 4000ms to prevent mobile drop-off)
       setTimeout(() => {
         hideTypingIndicator();
+        const freshCheckoutUrl = getCheckoutUrl();
         const offerRow = document.createElement("div");
         offerRow.className = "msg-row msg-in";
         offerRow.innerHTML = `
@@ -1605,7 +1613,7 @@
               <div class="price-sub">Pago único • Acceso inmediato de por vida (o en tu moneda local)</div>
             </div>
 
-            <a href="${checkoutUrl}" onclick="trackEvent('InitiateCheckout')" class="big-checkout-cta">
+            <a href="${freshCheckoutUrl}" onclick="return handleCheckoutClick(event, this, 'offer_top_cta')" class="big-checkout-cta">
               ¡QUIERO MI ACCESO CON LYGIA POR $14.99! →
             </a>
 
@@ -1629,21 +1637,25 @@
               <div class="mini-card">⛪ <strong>Sagrada Familia</strong><span>Vende por $25-$38</span></div>
               <div class="mini-card">🦌 <strong>Mini Reno</strong><span>Vende por $8-$12</span></div>
             </div>
+
+            <a href="${freshCheckoutUrl}" onclick="return handleCheckoutClick(event, this, 'offer_bottom_cta')" class="big-checkout-cta" style="margin-top:14px;">
+              ACCEDER A LOS +45 PATRONES AHORA ($14.99) →
+            </a>
           </div>
         `;
         stream.appendChild(offerRow);
         scrollToBottom(false);
         setTimeout(() => scrollToBottom(false), 200);
 
-        // 8 seconds after offer appears, send interactive FAQ message with real YouTube doubts + step-by-step GIF
+        // 7 seconds after offer appears, send interactive FAQ message with real YouTube doubts + step-by-step GIF
         setTimeout(() => {
           showTypingIndicator();
           setTimeout(() => {
             hideTypingIndicator();
             renderFaqStep(true);
-          }, 1000);
+          }, 800);
         }, 7000);
-      }, 4000);
+      }, 700);
     }
 
     /* Top Repeated Doubts from Real Spanish YouTube Amigurumi Comments */
@@ -1771,7 +1783,7 @@
               <span class="msg-time">${getTimeString()}</span>
             </div>
             <div class="wa-button-stack">
-              <a href="${checkoutUrl}" onclick="trackEvent('InitiateCheckout')" class="wa-action-btn" style="font-weight:700; color:#008069;">
+              <a href="${checkoutUrl}" onclick="return handleCheckoutClick(event, this, 'faq_cta')" class="wa-action-btn" style="font-weight:700; color:#008069;">
                 <span>✅ ¡Listo, quiero mi acceso por $14.99! →</span>
               </a>
               ${hasMore ? `
@@ -1825,6 +1837,23 @@
       stream.appendChild(userRow);
       scrollToBottom(false);
 
+      // Track quiz progression per step so we can diagnose drop-off in Meta Events Manager
+      trackCustomStep(`Quiz_Step${state.stepIndex + 1}_${stepData.key}`, {
+        answer: selected,
+        option_index: idx
+      });
+
+      // Fast-track option 3 in Step 0 ("Ver los +45 patrones ahora mismo") straight to the Offer
+      if (state.stepIndex === 0 && idx === 2) {
+        state.stepIndex = chatScript.length;
+        showTypingIndicator();
+        setTimeout(() => {
+          hideTypingIndicator();
+          renderOfferStep();
+        }, 550);
+        return;
+      }
+
       // Advance
       state.stepIndex++;
       const nextStepData = chatScript[state.stepIndex];
@@ -1833,14 +1862,14 @@
         showTypingIndicator();
         setTimeout(() => {
           hideTypingIndicator();
-          if (nextStepData.type === "social_proof") {
-            renderSocialProofStep(nextStepData);
+          if (nextStepData.type === "social_proof_and_offer") {
+            renderSocialProofAndOfferStep(nextStepData);
           } else if (nextStepData.type === "offer") {
             renderOfferStep();
           } else {
             renderInteractiveStep(nextStepData);
           }
-        }, 1300);
+        }, 650);
       }
     }
 
@@ -1883,6 +1912,12 @@
     }
 
     // Initialize first step and guarantee all 3 buttons are immediately in view
+    trackEvent("ViewContent", {
+      content_name: "Mundo Amigurumi Navideño - Quiz WhatsApp",
+      content_category: "Amigurumis",
+      value: 14.99,
+      currency: "USD"
+    });
     renderInteractiveStep(chatScript[0]);
     scrollToBottom(false);
     setTimeout(() => scrollToBottom(false), 80);
@@ -1891,6 +1926,8 @@
     window.addEventListener("load", () => scrollToBottom(false));
     window.addEventListener("resize", () => scrollToBottom(false));
   </script>
+  <!-- Hidden static Cakto anchor present on initial DOM load so Cakto tracker.js can decorate it -->
+  <a id="caktoTrackerAnchor" href="https://pay.cakto.com.br/3nopg6v_1345306" style="display:none" aria-hidden="true" tabindex="-1"></a>
   <!-- Cakto Analytics UTM & 90-Day Checkout Attribution Tracker -->
   <script src="https://api.cakto.com.br/api/product/checkout/tracker.js" async></script>
 </body>

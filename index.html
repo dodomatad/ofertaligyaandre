@@ -11,9 +11,14 @@
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0B4F3A" />
 
+  <link rel="dns-prefetch" href="https://connect.facebook.net" />
+  <link rel="dns-prefetch" href="https://api.cakto.com.br" />
+  <link rel="preload" as="image" href="assets/hero-amigurumi-hd.webp" type="image/webp" fetchpriority="high" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -115,6 +120,11 @@
     /* Section Rhythm */
     section {
       padding: 36px 0;
+    }
+
+    section:not(.hero) {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 650px;
     }
 
     section.alt {
@@ -1154,7 +1164,10 @@
       </p>
 
       <div class="hero-media">
-        <img src="assets/hero-amigurumi-hd.jpg" alt="Mini Santa, Reno, Galleta de Jengibre y Arbolito navideños tejidos a mano en crochet" fetchpriority="high" />
+        <picture>
+          <source srcset="assets/hero-amigurumi-hd.webp" type="image/webp" />
+          <img src="assets/hero-amigurumi-hd.jpg" alt="Mini Santa, Reno, Galleta de Jengibre y Arbolito navideños tejidos a mano en crochet" width="960" height="716" fetchpriority="high" decoding="sync" />
+        </picture>
         <div class="hero-caption-strip">
           <span>✓ +45 diseños navideños PDF</span>
           <span>✓ 5 a 10 cm sin costuras</span>
@@ -1164,7 +1177,10 @@
 
       <!-- Áudio real da Maestra Lygia (Retenção e Pessoalidade) -->
       <div class="audio-card" id="lygiaAudioCard" onclick="toggleLygiaAudio()" role="button" tabindex="0" aria-label="Escuchar mensaje de voz de la Maestra Lygia">
-        <img src="assets/maestra-lygia-hd.jpg" alt="Maestra Lygia" class="audio-avatar" />
+        <picture>
+          <source srcset="assets/maestra-lygia-avatar.webp" type="image/webp" />
+          <img src="assets/maestra-lygia-hd.jpg" alt="Maestra Lygia" class="audio-avatar" width="50" height="50" decoding="async" />
+        </picture>
         <button type="button" class="audio-play-btn" id="audioPlayBtn" aria-label="Reproducir audio">▶</button>
         <div class="audio-meta">
           <div class="audio-title">Escucha a la Maestra Lygia antes de empezar 🎧</div>
@@ -1211,7 +1227,10 @@
 
       <div class="carla-showcase">
         <div class="carla-shot">
-          <img src="assets/print-conversacion-carla.jpg" alt="Captura real de WhatsApp de la alumna Carla Mendoza con su primer pedido de $45 USD" loading="lazy" />
+          <picture>
+            <source srcset="assets/print-conversacion-carla.webp" type="image/webp" />
+            <img src="assets/print-conversacion-carla.jpg" alt="Captura real de WhatsApp de la alumna Carla Mendoza con su primer pedido de $45 USD" width="720" height="1233" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="proof-stack">
           <div class="proof-card">
@@ -1260,12 +1279,15 @@
           </p>
         </div>
         <div class="gif-frame">
-          <img src="assets/paso-a-paso-dudas.gif" alt="Demostración visual del paso a paso de los puntos de crochet" loading="lazy" />
+          <img src="assets/paso-a-paso-dudas.gif" alt="Demostración visual del paso a paso de los puntos de crochet" width="440" height="236" loading="lazy" decoding="async" />
         </div>
       </div>
 
       <div class="photo-showcase">
-        <img src="assets/kit-mockup-hd.jpg" alt="Guías PDF de amigurumi en español en tablet, celular e impresas junto a los personajes terminados" loading="lazy" />
+        <picture>
+          <source srcset="assets/kit-mockup-hd.webp" type="image/webp" />
+          <img src="assets/kit-mockup-hd.jpg" alt="Guías PDF de amigurumi en español en tablet, celular e impresas junto a los personajes terminados" width="960" height="716" loading="lazy" decoding="async" />
+        </picture>
       </div>
 
       <div class="objection-grid">
@@ -1377,7 +1399,10 @@
       </div>
 
       <div class="photo-showcase">
-        <img src="assets/vitrine-pesebre-hd.jpg" alt="Pesebre navideño de crochet, arbolito, bastón y adornos incluidos en la colección" loading="lazy" />
+        <picture>
+          <source srcset="assets/vitrine-pesebre-hd.webp" type="image/webp" />
+          <img src="assets/vitrine-pesebre-hd.jpg" alt="Pesebre navideño de crochet, arbolito, bastón y adornos incluidos en la colección" width="960" height="716" loading="lazy" decoding="async" />
+        </picture>
       </div>
 
       <div class="center">
@@ -1458,7 +1483,7 @@
       </div>
 
       <div class="gif-frame" style="max-width:440px; margin:16px auto 18px;">
-        <img src="assets/mini-doll-mexendo.gif" alt="Mini muñeca navideña tejida a mano lista en menos de 2 horas" loading="lazy" />
+        <video id="miniDollVideo" data-src="assets/mini-doll-mexendo.mp4" poster="assets/hero-amigurumi-hd.webp" autoplay loop muted playsinline preload="none" width="440" height="440" style="width:100%; height:auto; display:block;"></video>
       </div>
 
       <div class="steps-grid">
@@ -1572,7 +1597,10 @@
   <section id="maestra">
     <div class="wrap">
       <div class="author-card">
-        <img src="assets/maestra-lygia-hd.jpg" alt="Maestra Lygia sosteniendo dos mini llaveros navideños de Santa y Reno en crochet" loading="lazy" />
+        <picture>
+          <source srcset="assets/maestra-lygia-hd.webp" type="image/webp" />
+          <img src="assets/maestra-lygia-hd.jpg" alt="Maestra Lygia sosteniendo dos mini llaveros navideños de Santa y Reno en crochet" width="640" height="857" loading="lazy" decoding="async" />
+        </picture>
         <div>
           <div class="eyebrow forest" style="margin-bottom:8px;">Tu guía en este taller</div>
           <h2 style="font-size:24px; margin-bottom:8px;">Hola, soy la Maestra Lygia ❤️</h2>
@@ -1903,9 +1931,33 @@
       }
     }
 
+    /* 7. Lazy-load MP4 demo video only when scrolled near it (0 KB on initial paint) */
+    function initLazyVideo() {
+      const vid = document.getElementById("miniDollVideo");
+      if (!vid || !vid.dataset.src) return;
+      const loadVid = () => {
+        if (vid.src) return;
+        vid.src = vid.dataset.src;
+        vid.load();
+        vid.play().catch(() => {});
+      };
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            loadVid();
+            io.disconnect();
+          }
+        }, { rootMargin: "300px 0px" });
+        io.observe(vid);
+      } else {
+        loadVid();
+      }
+    }
+
     /* Init */
     updateChristmasBanner();
     syncAllCheckoutLinks();
+    initLazyVideo();
     trackEvent("ViewContent", {
       content_name: "Colección Completa +45 Mini Amigurumis Navideños",
       content_category: "Amigurumis",

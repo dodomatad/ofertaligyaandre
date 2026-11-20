@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Mundo Amigurumi Navideño</title>
+  <meta name="description" content="Aprende Amigurumis Navideños desde cero y genera ingresos extra esta Navidad. ¡Accede a moldes descargables en PDF paso a paso!" />
+  <meta property="og:title" content="Mundo Amigurumi Navideño" />
+  <meta property="og:site_name" content="Mundo Amigurumi Navideño" />
+  <meta property="og:description" content="Aprende Amigurumis Navideños desde cero y genera ingresos extra esta Navidad." />
+  <meta property="og:type" content="website" />
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1858854959583499');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1858854959583499&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+  <style>
+    :root {
+      --wa-teal-dark: #075e54;
+      --wa-teal-bar: #008069;
+      --wa-bg: #efeae2;
+      --wa-bubble-in: #ffffff;
+      --wa-bubble-out: #d9fdd3;
+      --wa-check-blue: #53bdeb;
+      --wa-time-gray: #667781;
+      --wa-text-main: #111b21;
+      --wa-action-teal: #00a884;
+      --wa-border-light: #e9edef;
+      --wa-typing-neon: #79f2af;
+      --primary-red: #c62828;
+      --gold-star: #d97706;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0b141a;
+      color: var(--wa-text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    /* WhatsApp Mobile App Shell */
+    .wa-app {
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      height: 100dvh;
+      background-color: #efeae2;
+      /* Official WhatsApp HD Doodle Background */
+      background-image: url("assets/whatsapp-doodle-hd.png");
+      background-repeat: repeat;
+      background-size: 380px auto;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 35px rgba(0,0,0,0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* WhatsApp Android Native Top Bar */
+    .wa-top-bar {
+      background: var(--wa-teal-bar);
+      color: #ffffff;
+      padding: 0 6px 0 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.22);
+      flex-shrink: 0;
+      height: 56px;
+    }
+
+    .wa-header-left {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      flex: 1;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .wa-back-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 2px 6px 4px;
+      color: #ffffff;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .wa-avatar-wrap {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      margin-left: 0;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .wa-avatar-wrap img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .wa-contact-info {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .wa-contact-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      line-height: 1.25;
+      white-space: nowrap;
+      letter-spacing: 0.1px;
+    }
+
+    .wa-contact-name span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .wa-verified-icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .wa-contact-status {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.2;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+      margin-top: 2px;
+    }
+
+    .wa-contact-status.typing {
+      color: var(--wa-typing-neon);
+      font-weight: 500;
+    }
+
+    .wa-header-icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #ffffff;
+      padding-right: 4px;
+      flex-shrink: 0;
+    }
+
+    .wa-header-icon-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .wa-header-icon-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    /* Chat Stream */
+    .wa-chat-stream {
+      flex: 1;
+      padding: 10px 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    /* Date & Security Pills */
+    .wa-date-pill {
+      align-self: center;
+      background: #ffffff;
+      color: var(--wa-time-gray);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 7.5px;
+      box-shadow: 0 1px 0.5px rgba(11,20,26,0.13);
+      margin: 2px 0 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .wa-lock-pill {
+      align-self: center;
+      background: #ffeecd;
+      color: #54656f;
+      font-size: 11.5px;
+      line-height: 1.35;
+      padding: 6px 12px;
+      border-radius: 8px;
+      box-shadow: 0 1px 0.5px rgba(11,20,26,0.08);
+      margin-bottom: 6px;
+      text-align: center;
+      max-width: 92%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    /* Message Rows & Pop Animation */
+    .msg-row {
+      display: flex;
+      flex-direction: column;
+      animation: msgPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      position: relative;
+    }
+
+    @keyframes msgPop {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg-in {
+      align-self: flex-start;
+      max-width: 88%;
+    }
+
+    .msg-out {
+      align-self: flex-end;
+      max-width: 84%;
+    }
+
+    /* WhatsApp Native Chat Bubbles */
+    .bubble {
+      padding: 6px 9px 6px;
+      border-radius: 7.5px;
+      position: relative;
+      box-shadow: 0 1px 0.5px rgba(11,20,26,0.13);
+      font-size: 14.2px;
+      line-height: 1.38;
+      word-wrap: break-word;
+    }
+
+    /* Inbound Bubble (White with left tail) */
+    .bubble-in {
+      background: var(--wa-bubble-in);
+      color: var(--wa-text-main);
+      border-top-left-radius: 0;
+      margin-left: 6px;
+    }
+
+    .bubble-in::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -6px;
+      width: 0;
+      height: 0;
+      border-top: 0 solid transparent;
+      border-bottom: 9px solid transparent;
+      border-right: 6px solid #ffffff;
+    }
+
+    /* Outbound Bubble (Light green with right tail) */
+    .bubble-out {
+      background: var(--wa-bubble-out);
+      color: var(--wa-text-main);
+      border-top-right-radius: 0;
+      margin-right: 6px;
+    }
+
+    .bubble-out::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -6px;
+      width: 0;
+      height: 0;
+      border-top: 0 solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 6px solid #d9fdd3;
+    }
+
+    .msg-time {
+      font-size: 11px;
+      color: var(--wa-time-gray);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      float: right;
+      margin-left: 8px;
+      margin-top: 4px;
+      line-height: 1;
+    }
+
+    /* Authentic WhatsApp Typing Animation Bubble */
+    .wa-typing-row {
+      align-self: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .wa-typing-bubble {
+      background: #ffffff;
+      padding: 9px 14px;
+      border-radius: 12px;
+      border-top-left-radius: 0;
+      box-shadow: 0 1px 0.5px rgba(11,20,26,0.13);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      width: fit-content;
+      margin-left: 6px;
+      position: relative;
+    }
+
+    .wa-typing-bubble::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -6px;
+      width: 0;
+      height: 0;
+      border-bottom: 9px solid transparent;
+      border-right: 6px solid #ffffff;
+    }
+
+    .wa-dot {
+      width: 7px;
+      height: 7px;
+      background: #8696a0;
+      border-radius: 50%;
+      display: inline-block;
+      animation: waDotWave 1.3s infinite ease-in-out;
+    }
+
+    .wa-dot:nth-child(1) { animation-delay: 0s; }
+    .wa-dot:nth-child(2) { animation-delay: 0.2s; }
+    .wa-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes waDotWave {
+      0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.35;
+      }
+      30% {
+        transform: translateY(-5px);
+        opacity: 1;
+        background: #00a884;
+      }
+    }
+
+    /* Video / Animated GIF inside WhatsApp */
+    .msg-video-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      background: transparent;
+      cursor: pointer;
+      aspect-ratio: 16 / 9;
+    }
+
+    .msg-video-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 1;
+    }
+
+    /* WhatsApp Business Interactive Message Card */
+    .interactive-card {
+      background: #ffffff;
+      border-radius: 7.5px;
+      border-top-left-radius: 0;
+      overflow: hidden;
+      box-shadow: 0 1px 0.5px rgba(11,20,26,0.13);
+      position: relative;
+      margin-left: 6px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .interactive-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -6px;
+      width: 0;
+      height: 0;
+      border-top: 0 solid transparent;
+      border-bottom: 9px solid transparent;
+      border-right: 6px solid #ffffff;
+    }
+
+    .interactive-body {
+      padding: 6px 10px 4px;
+      font-size: 13.8px;
+      line-height: 1.36;
+      color: var(--wa-text-main);
+    }
+
+    .interactive-body p, .interactive-body div {
+      margin-bottom: 4px;
+    }
+
+    .interactive-footer {
+      font-size: 11px;
+      color: var(--wa-time-gray);
+      padding: 0 10px 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* WhatsApp Business Official Quick Reply Buttons (No fake arrows) */
+    .wa-button-stack {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--wa-border-light);
+    }
+
+    .wa-action-btn {
+      background: #ffffff;
+      border: none;
+      border-top: 1px solid var(--wa-border-light);
+      padding: 9.5px 12px;
+      font-family: inherit;
+      font-size: 13.8px;
+      font-weight: 500;
+      color: var(--wa-action-teal);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      text-align: center;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      width: 100%;
+      user-select: none;
+      min-height: 40px;
+      text-decoration: none;
+    }
+
+    .wa-btn-reply-icon {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .wa-action-btn:first-child {
+      border-top: none;
+    }
+
+    .wa-action-btn:hover {
+      background-color: #f7f8fa;
+    }
+
+    .wa-action-btn:active {
+      background-color: #eaecef;
+    }
+
+    .wa-action-btn.disabled {
+      color: #94a3b8;
+      cursor: default;
+      background: #fafafa;
+    }
+
+    /* WhatsApp Native Media Image Message (Real Screenshot) */
+    .msg-media-bubble {
+      padding: 4px;
+      max-width: 86%;
+      border-radius: 7.5px;
+      border-top-left-radius: 0;
+      background: #ffffff;
+      box-shadow: 0 1px 0.5px rgba(11,20,26,0.13);
+      position: relative;
+      margin-left: 6px;
+    }
+
+    .msg-media-bubble::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -6px;
+      width: 0;
+      height: 0;
+      border-bottom: 9px solid transparent;
+      border-right: 6px solid #ffffff;
+    }
+
+    .media-container {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .media-photo {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .media-time-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(11, 20, 26, 0.65);
+      color: #ffffff;
+      font-size: 10.5px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* Modal for Full-View Image */
+    .wa-image-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      z-index: 9999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    .wa-image-modal.open {
+      display: flex;
+    }
+
+    .wa-image-modal img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+      object-fit: contain;
+    }
+
+    .modal-bar {
+      width: 100%;
+      max-width: 440px;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .modal-bar button {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* WhatsApp Voice Audio Note Simulation */
+    .audio-note-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 2px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .audio-avatar-stack {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .audio-avatar-stack img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .audio-mic-badge {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      background: #25d366;
+      border-radius: 50%;
+      width: 17px;
+      height: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #ffffff;
+    }
+
+    .audio-mic-badge.played {
+      background: #53bdeb;
+    }
+
+    .audio-play-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--wa-teal-bar);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      padding-left: 2px;
+      flex-shrink: 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.18);
+    }
+
+    .audio-waveform-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .audio-waveform-bars {
+      height: 18px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .audio-bar {
+      width: 2.5px;
+      background: #8696a0;
+      border-radius: 2px;
+      transition: background 0.15s ease;
+    }
+
+    .audio-bar.active {
+      background: var(--wa-check-blue);
+    }
+
+    .audio-timer-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--wa-time-gray);
+      font-weight: 500;
+    }
+
+    /* WhatsApp Catalog Product Presentation Card */
+    .catalog-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border-top-left-radius: 0;
+      border: 1px solid #d2e7dc;
+      padding: 10px;
+      margin-left: 6px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .catalog-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -6px;
+      width: 0;
+      height: 0;
+      border-bottom: 9px solid transparent;
+      border-right: 6px solid #ffffff;
+    }
+
+    .catalog-mockup {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .catalog-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--wa-text-main);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .mini-showcase-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #075e54;
+      margin-bottom: 6px;
+    }
+
+    .sample-pattern {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 6px;
+      padding: 7px 9px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .sample-pattern mark {
+      background: #fee2e2;
+      color: var(--primary-red);
+      padding: 1px 3px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+
+    .mini-showcase {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .mini-card {
+      background: #fafafa;
+      border: 1px solid #ededed;
+      border-radius: 6px;
+      padding: 6px;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    .mini-card strong { display: block; font-size: 11.5px; margin: 1px 0; color: #111b21; }
+    .mini-card span { color: #16a34a; font-weight: 700; }
+
+    .catalog-price-box {
+      background: linear-gradient(180deg, #fffaf4 0%, #fff2e0 100%);
+      border: 1.5px solid var(--gold-star);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .old-price { font-size: 12px; color: #667781; text-decoration: line-through; }
+    .new-price {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary-red);
+      line-height: 1.1;
+      margin: 2px 0;
+    }
+    .price-sub { font-size: 11px; color: #667781; font-weight: 600; }
+
+    .big-checkout-cta {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      background: #00a884;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 168, 132, 0.35);
+      transition: background-color 0.2s ease, transform 0.15s ease;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .big-checkout-cta:hover {
+      background: #008f6f;
+      transform: translateY(-1px);
+    }
+
+    .guarantee-note {
+      font-size: 11px;
+      color: #667781;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    /* Value stack: what she receives (perceived value before the price) */
+    .value-stack {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 9px 10px;
+      margin-bottom: 10px;
+    }
+
+    .value-stack-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #075e54;
+      margin-bottom: 6px;
+    }
+
+    .value-stack ul {
+      list-style: none;
+    }
+
+    .value-stack li {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #111b21;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .value-stack li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-weight: 800;
+    }
+
+    .value-stack-xmas {
+      margin-top: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b52f2f;
+    }
+
+    /* WhatsApp Android Native Bottom Input Bar */
+    .wa-bottom-bar {
+      background: transparent;
+      padding: 6px 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      z-index: 50;
+    }
+
+    .wa-input-pill {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 1px 1.5px rgba(0,0,0,0.12);
+    }
+
+    .wa-input-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #8696a0;
+    }
+
+    .wa-input-text {
+      flex: 1;
+      font-size: 14px;
+      color: #8696a0;
+      user-select: none;
+    }
+
+    .wa-mic-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--wa-teal-bar);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      border: none;
+      color: #ffffff;
+    }
+
+    /* Floating Hint Toast over bottom input bar (never covers chat buttons) */
+    .wa-hint-toast {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: rgba(17, 27, 33, 0.94);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+      z-index: 250;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      white-space: normal;
+      width: calc(100% - 36px);
+      max-width: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .wa-hint-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @keyframes optionPulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 168, 132, 0); }
+      50% { transform: scale(1.02); box-shadow: 0 0 14px rgba(0, 168, 132, 0.5); }
+      100% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 168, 132, 0); }
+    }
+
+    .highlight-buttons {
+      animation: optionPulse 0.5s ease-in-out 2;
+    }
+
+    @media (max-width: 350px) {
+      .wa-header-icons { gap: 8px; }
+      .wa-contact-name { font-size: 14.5px; }
+      .wa-avatar-wrap { width: 34px; height: 34px; margin-right: 6px; }
+      .wa-avatar-wrap img { width: 34px; height: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wa-app">
+    <!-- WhatsApp Android Top Bar with Authentic Native SVGs -->
+    <header class="wa-top-bar">
+      <div class="wa-header-left">
+        <button class="wa-back-btn" title="Atrás">
+          <!-- WhatsApp Native Back Arrow SVG -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+        </button>
+        <div class="wa-avatar-wrap">
+          <img src="assets/professora-lygia.jpg" alt="Maestra Lygia" />
+        </div>
+        <div class="wa-contact-info">
+          <div class="wa-contact-name">
+            <span>Maestra Lygia</span>
+            <!-- Verified Checkmark SVG -->
+            <svg class="wa-verified-icon" viewBox="0 0 18 18" width="16" height="16" fill="none" aria-hidden="true">
+              <circle cx="9" cy="9" r="9" fill="#00a884"/>
+              <path d="M13.14 6.71l-5 5c-.11.11-.25.16-.39.16s-.28-.05-.39-.16l-2.5-2.5a.552.552 0 010-.78.552.552 0 01.78 0L7.31 10.4l4.61-4.61c.21-.21.57-.21.78 0 .21.21.21.57 0 .78z" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div class="wa-contact-status" id="headerStatus">en línea</div>
+        </div>
+      </div>
+      <div class="wa-header-icons">
+        <!-- WhatsApp Video Call Icon SVG (Authentic Material/WhatsApp Android) -->
+        <button class="wa-header-icon-btn" title="Videollamada">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff">
+            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+          </svg>
+        </button>
+        <!-- WhatsApp Phone Call Icon SVG (Authentic Material/WhatsApp Android) -->
+        <button class="wa-header-icon-btn" title="Llamada">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.05 15.05 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1.01A11.36 11.36 0 018.57 3.99c0-.55-.45-1-1-1H4.01c-.55 0-1 .45-1 1 0 9.39 7.63 17.02 17 17.02.55 0 1-.45 1-1v-3.63c0-.55-.45-1-1-1z"/>
+          </svg>
+        </button>
+        <!-- WhatsApp 3-Dots Menu SVG (Authentic Material/WhatsApp Android) -->
+        <button class="wa-header-icon-btn" title="Más opciones">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff">
+            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Chat Message Stream -->
+    <main class="wa-chat-stream" id="chatStream">
+      <div class="wa-date-pill">HOY</div>
+      <div class="wa-lock-pill">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="#54656f" style="flex-shrink:0;">
+          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+        </svg>
+        <span>Chat interactivo oficial de Maestra Lygia. Toca los botones abajo para responder.</span>
+      </div>
+    </main>
+
+    <!-- WhatsApp Android Bottom Input Bar with Real SVGs -->
+    <footer class="wa-bottom-bar">
+      <div class="wa-input-pill" onclick="showInputHint()" style="cursor:pointer;" title="Toca las opciones para responder">
+        <!-- Emoji Icon SVG (Authentic WhatsApp Android Emoticon) -->
+        <span class="wa-input-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+          </svg>
+        </span>
+        <span class="wa-input-text" id="inputPlaceholder">Mensaje</span>
+        <!-- Paperclip Icon SVG (Rotated 45deg like real WhatsApp Android) -->
+        <span class="wa-input-icon" style="transform: rotate(45deg); display: inline-flex;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5a2.5 2.5 0 015 0v10.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5V6H9v9.5a3 3 0 006 0V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/>
+          </svg>
+        </span>
+        <!-- Camera Icon SVG (Authentic WhatsApp Android Camera) -->
+        <span class="wa-input-icon">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor">
+            <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0-4.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+          </svg>
+        </span>
+      </div>
+      <!-- WhatsApp Microphone Button SVG (Authentic WhatsApp Android FAB) -->
+      <button class="wa-mic-btn" onclick="showInputHint()" title="Nota de voz">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+        </svg>
+      </button>
+    </footer>
+
+    <!-- Floating Hint Toast for Seniors / Mobile Taps -->
+    <div class="wa-hint-toast" id="inputHintToast">
+      <span>Toca una de las opciones arriba para responder a la Maestra 👆</span>
+    </div>
+  </div>
+
+  <!-- WhatsApp Image Fullscreen Modal -->
+  <div class="wa-image-modal" id="imageModal" onclick="closeImageModal()">
+    <div class="modal-bar" onclick="event.stopPropagation()">
+      <span>Captura de WhatsApp</span>
+      <button onclick="closeImageModal()">✕ Cerrar</button>
+    </div>
+    <img id="modalImg" src="" alt="Captura ampliada" onclick="event.stopPropagation()" />
+  </div>
+
+  <script>
+    const CHECKOUT_BASE_URL = "https://pay.cakto.com.br/3nopg6v_1345306";
+    const UTM_STORAGE_KEY = "amig_utm_qs_v2";
+
+    (function persistInboundTrackingParams() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.toString()) {
+          sessionStorage.setItem(UTM_STORAGE_KEY, params.toString());
+          localStorage.setItem(UTM_STORAGE_KEY, params.toString());
+        }
+      } catch (e) {}
+    })();
+
+    function getCheckoutUrl() {
+      let base = CHECKOUT_BASE_URL;
+      try {
+        const anchor = document.getElementById("caktoTrackerAnchor");
+        if (anchor && anchor.href && anchor.href.indexOf("pay.cakto.com.br") !== -1) {
+          base = anchor.href;
+        }
+      } catch (e) {}
+
+      let inboundQs = window.location.search.replace(/^\?/, "");
+      if (!inboundQs) {
+        try {
+          inboundQs = sessionStorage.getItem(UTM_STORAGE_KEY) || localStorage.getItem(UTM_STORAGE_KEY) || "";
+        } catch (e) {}
+      }
+
+      try {
+        const finalUrl = new URL(base);
+        if (inboundQs) {
+          const inboundParams = new URLSearchParams(inboundQs);
+          inboundParams.forEach((value, key) => {
+            if (value !== "" && !finalUrl.searchParams.has(key)) {
+              finalUrl.searchParams.set(key, value);
+            }
+          });
+        }
+        return finalUrl.toString();
+      } catch (e) {
+        if (!inboundQs) return CHECKOUT_BASE_URL;
+        const sep = CHECKOUT_BASE_URL.includes("?") ? "&" : "?";
+        return CHECKOUT_BASE_URL + sep + inboundQs;
+      }
+    }
+
+    function trackEvent(eventName, customParams) {
+      if (typeof window.fbq !== "function") return;
+      if (eventName === "InitiateCheckout") {
+        window.fbq("track", "InitiateCheckout", customParams || {
+          value: 14.99,
+          currency: "USD",
+          content_name: "Colección Completa: Mini Muñecas y Amigurumis Navideños",
+          content_category: "Amigurumis",
+          num_items: 1
+        });
+        return;
+      }
+      window.fbq("track", eventName, customParams || undefined);
+    }
+
+    function trackCustomStep(stepName, params) {
+      if (typeof window.fbq !== "function") return;
+      try {
+        window.fbq("trackCustom", stepName, params || {});
+      } catch (e) {}
+    }
+
+    let checkoutRedirectPending = false;
+    function handleCheckoutClick(event, anchorEl, sourceTag) {
+      const finalUrl = getCheckoutUrl();
+      if (anchorEl) {
+        anchorEl.href = finalUrl;
+      }
+
+      trackEvent("InitiateCheckout", {
+        value: 14.99,
+        currency: "USD",
+        content_name: "Colección Completa: Mini Muñecas y Amigurumis Navideños",
+        content_category: "Amigurumis",
+        num_items: 1,
+        cta_source: sourceTag || "offer_main"
+      });
+
+      // Allow Ctrl/Cmd/middle-click to open natively in new tab
+      if (event && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button === 1)) {
+        return true;
+      }
+
+      if (event) event.preventDefault();
+      if (checkoutRedirectPending) return false;
+      checkoutRedirectPending = true;
+
+      // Guarantee Meta Pixel Beacon flushes before leaving in-app browser (IG/FB)
+      setTimeout(() => {
+        window.location.href = finalUrl;
+        setTimeout(() => { checkoutRedirectPending = false; }, 2000);
+      }, 180);
+      return false;
+    }
+
+    function getTimeString() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      return `${h}:${m}`;
+    }
+
+    /* Real, verifiable urgency (seasonal): time left until Christmas, in friendly buckets
+       (so the text stays true for many days without a changing exact number) */
+    function getDaysToChristmasText() {
+      const now = new Date();
+      let xmas = new Date(now.getFullYear(), 11, 25);
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      if (today > xmas) xmas = new Date(now.getFullYear() + 1, 11, 25);
+      const days = Math.round((xmas - today) / 86400000);
+      if (days === 0) return "¡Hoy es Navidad!";
+      if (days === 1) return "Falta solo 1 día para Navidad: empieza hoy";
+      if (days >= 60) return "Prepárate con tiempo para la próxima Navidad: empieza hoy";
+      if (days >= 45) return "Faltan casi 2 meses para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 28) return "Falta 1 mes para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 21) return "Faltan 3 semanas para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 14) return "Faltan 2 semanas para Navidad: empieza hoy y llega a tiempo";
+      if (days >= 7) return "Falta 1 semana para Navidad: empieza hoy y llega a tiempo";
+      return "Faltan pocos días para Navidad: empieza hoy y llega a tiempo";
+    }
+
+    function scrollToBottom(smooth = false) {
+      const stream = document.getElementById("chatStream");
+      if (!stream) return;
+      if (smooth) {
+        stream.scrollTo({ top: stream.scrollHeight, behavior: 'smooth' });
+      } else {
+        stream.scrollTop = stream.scrollHeight;
+      }
+    }
+
+    /* WhatsApp Official Double Blue Checkmark SVG */
+    const doubleCheckSvg = `
+      <svg viewBox="0 0 16 11" width="16" height="11" fill="none">
+        <path d="M11.05 0.75L4.55 7.25L1.7 4.4L0.65 5.45L4.55 9.35L12.1 1.8L11.05 0.75Z" fill="#53bdeb"/>
+        <path d="M15.05 0.75L8.55 7.25L7.25 5.95L6.2 7L8.55 9.35L16.1 1.8L15.05 0.75Z" fill="#53bdeb"/>
+      </svg>
+    `;
+
+    /* WhatsApp Official Forwarded Arrow SVG */
+    const forwardArrowSvg = `
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="#667781">
+        <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
+      </svg>
+    `;
+
+    const state = {
+      stepIndex: 0,
+      answers: {}
+    };
+
+    /* Real WhatsApp Audio Note Player (Authentic Duration & Counting to End) */
+    let realAudio = null;
+    let isPlayingAudio = false;
+
+    function formatAudioTime(seconds) {
+      const s = Math.round(seconds);
+      const m = Math.floor(s / 60);
+      const rem = s % 60;
+      return `${m}:${String(rem).padStart(2, '0')}`;
+    }
+
+    function toggleAudioPlayback() {
+      const playIcon = document.getElementById("audioPlayIcon");
+      const timeLabel = document.getElementById("audioTimeLabel");
+      const micBadge = document.getElementById("audioMicBadge");
+      const bars = document.querySelectorAll(".audio-bar");
+
+      if (!realAudio) {
+        realAudio = new Audio("assets/audio-lygia.mp3");
+
+        const setTotalDuration = () => {
+          if (realAudio.duration && !isPlayingAudio) {
+            const totalSecs = Math.round(realAudio.duration);
+            if (timeLabel) timeLabel.textContent = formatAudioTime(totalSecs);
+          }
+        };
+
+        realAudio.addEventListener("loadedmetadata", setTotalDuration);
+        realAudio.addEventListener("canplaythrough", setTotalDuration);
+
+        realAudio.addEventListener("timeupdate", () => {
+          if (!realAudio.duration) return;
+          const totalSecs = Math.round(realAudio.duration);
+          // If within 0.3s of end or audio has ended, display the full totalSecs (e.g. 0:22)
+          let curSecs = Math.floor(realAudio.currentTime);
+          if (realAudio.duration - realAudio.currentTime < 0.35 || realAudio.ended) {
+            curSecs = totalSecs;
+          }
+          if (timeLabel) {
+            timeLabel.textContent = formatAudioTime(curSecs);
+          }
+
+          const progress = Math.min(realAudio.currentTime / realAudio.duration, 1);
+          bars.forEach((b, i) => {
+            if (i / bars.length <= progress) {
+              b.classList.add("active");
+            } else {
+              b.classList.remove("active");
+            }
+          });
+        });
+
+        realAudio.addEventListener("ended", () => {
+          isPlayingAudio = false;
+          if (playIcon) playIcon.textContent = "▶";
+          const totalSecs = Math.round(realAudio.duration || 17);
+          if (timeLabel) timeLabel.textContent = formatAudioTime(totalSecs);
+          if (micBadge) micBadge.classList.add("played");
+          bars.forEach(b => b.classList.add("active"));
+        });
+
+        realAudio.addEventListener("pause", () => {
+          isPlayingAudio = false;
+          if (playIcon) playIcon.textContent = "▶";
+        });
+
+        realAudio.addEventListener("play", () => {
+          isPlayingAudio = true;
+          if (playIcon) playIcon.textContent = "❚❚";
+        });
+      }
+
+      if (!isPlayingAudio) {
+        // If ended or near end, restart from 0
+        if (realAudio.ended || (realAudio.duration && realAudio.currentTime >= realAudio.duration - 0.35)) {
+          realAudio.currentTime = 0;
+          bars.forEach(b => b.classList.remove("active"));
+        }
+        realAudio.play().then(() => {
+          isPlayingAudio = true;
+          if (playIcon) playIcon.textContent = "❚❚";
+        }).catch(err => {
+          console.log("Audio play error:", err);
+        });
+      } else {
+        realAudio.pause();
+        isPlayingAudio = false;
+        if (playIcon) playIcon.textContent = "▶";
+      }
+    }
+
+    /* Conversational Script — Streamlined High-Conversion Flow (Max 2 taps to Offer & Checkout) */
+    const chatScript = [
+      /* Step 0: Welcome Video & Question 1 */
+      {
+        key: "nivel",
+        videoWrap: true,
+        text: `¡Hola mi cielo! Bienvenida a mi taller navideño 🎄❤️ Imagina tejer tus primeras <strong>mini muñequitas sin costuras en menos de 2 horas</strong> y venderlas entre $8 y $12 USD esta Navidad.<br/><br/>Dime con confianza: <strong>¿tienes experiencia con el ganchillo o quieres ver directo los +45 patrones en PDF?</strong>`,
+        footer: "Toca una opción abajo:",
+        options: [
+          "🌱 Empezar desde cero (paso a paso)",
+          "🧶 Ya sé lo básico y quiero patrones",
+          "⚡ Ver los +45 patrones ahora mismo"
+        ]
+      },
+
+      /* Step 1: Goal & Pain Combined (1 tap -> Social Proof + Offer immediately) */
+      {
+        key: "objetivo",
+        text: `¡Perfecto, te entiendo totalmente! Aquí todos los patrones vienen <strong>vuelta por vuelta en español claro, sin siglas raras y sin costuras</strong>. 🥰<br/><br/>Última preguntita: <strong>¿qué es lo que más deseas lograr con tu tejido esta Navidad?</strong>`,
+        footer: "Toca tu opción para ver tu kit:",
+        options: [
+          "💰 Ganar dinero extra vendiendo mini llaveros",
+          "🎁 Tejer regalos únicos y decorar mi casa",
+          "⚡ Terminar piezas lindas en menos de 2 horas"
+        ]
+      },
+
+      /* Step 2: Real WhatsApp Social Proof + Immediate Offer */
+      {
+        type: "social_proof_and_offer",
+        text: `¡Hermosa elección! ❤️ La mayoría se cansa tejiendo muñecas gigantes de 30 cm que demoran 4 días. Nuestras <strong>Mini Muñecas (5 a 10 cm)</strong> no llevan costuras, quedan listas en menos de 2 horas y se venden solas.<br/><br/>Mira la plática real con <strong>Carla Mendoza</strong> (empezó desde cero):`,
+        imageSrc: "assets/print-conversacion-carla.jpg"
+      }
+    ];
+
+    /* Dynamic Typing Indicator in Chat & Header */
+    function showTypingIndicator() {
+      const statusEl = document.getElementById("headerStatus");
+      statusEl.textContent = "escribiendo...";
+      statusEl.classList.add("typing");
+
+      const stream = document.getElementById("chatStream");
+      let typingRow = document.getElementById("activeTyping");
+      if (!typingRow) {
+        typingRow = document.createElement("div");
+        typingRow.className = "msg-row wa-typing-row";
+        typingRow.id = "activeTyping";
+        typingRow.innerHTML = `
+          <div class="wa-typing-bubble">
+            <span class="wa-dot"></span>
+            <span class="wa-dot"></span>
+            <span class="wa-dot"></span>
+          </div>
+        `;
+        stream.appendChild(typingRow);
+        scrollToBottom(false);
+      }
+    }
+
+    function hideTypingIndicator() {
+      const statusEl = document.getElementById("headerStatus");
+      statusEl.textContent = "en línea";
+      statusEl.classList.remove("typing");
+
+      const typingRow = document.getElementById("activeTyping");
+      if (typingRow) {
+        typingRow.remove();
+      }
+    }
+
+    function renderInteractiveStep(stepData) {
+      const stream = document.getElementById("chatStream");
+      const timeStr = getTimeString();
+
+      const row = document.createElement("div");
+      row.className = "msg-row msg-in";
+
+      let videoHtml = "";
+      if (stepData.videoWrap) {
+        videoHtml = `
+          <div class="msg-video-wrap" onclick="openImageModal('assets/mini-doll-mexendo.gif')" title="Toca para ver en grande">
+            <img src="assets/mini-doll-mexendo.gif" alt="Demostración paso a paso" onload="scrollToBottom(false)" />
+          </div>
+        `;
+      }
+
+      let buttonsHtml = "";
+      if (stepData.options) {
+        const buttons = stepData.options.map((opt, idx) => `
+          <button class="wa-action-btn" onclick="handleOptionSelect(${idx})">
+            <svg class="wa-btn-reply-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+              <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
+            </svg>
+            <span>${opt}</span>
+          </button>
+        `).join("");
+
+        buttonsHtml = `<div class="wa-button-stack" id="btnStack">${buttons}</div>`;
+      }
+
+      row.innerHTML = `
+        <div class="interactive-card">
+          <div class="interactive-body">
+            ${videoHtml}
+            <div>${stepData.text}</div>
+          </div>
+          <div class="interactive-footer">
+            <span>${stepData.footer || "Selecciona una opción:"}</span>
+            <span class="msg-time">${timeStr}</span>
+          </div>
+          ${buttonsHtml}
+        </div>
+      `;
+
+      stream.appendChild(row);
+      scrollToBottom(false);
+      setTimeout(() => scrollToBottom(false), 50);
+      setTimeout(() => scrollToBottom(false), 150);
+      setTimeout(() => scrollToBottom(false), 350);
+    }
+
+    let offerAlreadyRendered = false;
+    function renderSocialProofAndOfferStep(stepData) {
+      const stream = document.getElementById("chatStream");
+      const timeStr = getTimeString();
+
+      const row1 = document.createElement("div");
+      row1.className = "msg-row msg-in";
+      row1.innerHTML = `
+        <div class="bubble bubble-in">
+          <div>${stepData.text}</div>
+          <span class="msg-time">${timeStr}</span>
+        </div>
+      `;
+      stream.appendChild(row1);
+      scrollToBottom(false);
+
+      showTypingIndicator();
+      setTimeout(() => {
+        hideTypingIndicator();
+        const row2 = document.createElement("div");
+        row2.className = "msg-row msg-in";
+        row2.innerHTML = `
+          <div class="msg-media-bubble">
+            <div class="forwarded-tag" style="padding: 2px 4px 4px; display:flex; align-items:center; gap:4px; font-size:11.5px; color:#667781; font-style:italic;">
+              ${forwardArrowSvg}
+              <span>Reenviado</span>
+            </div>
+            <div class="media-container" onclick="openImageModal('${stepData.imageSrc}')" title="Toca para ver en grande">
+              <img src="${stepData.imageSrc}" alt="Captura de WhatsApp con Carla" class="media-photo" onload="scrollToBottom(false)" />
+              <div class="media-time-badge">${timeStr}</div>
+            </div>
+          </div>
+        `;
+        stream.appendChild(row2);
+        scrollToBottom(false);
+        setTimeout(() => scrollToBottom(false), 100);
+
+        // Immediately flow into the Offer Card (zero extra tap friction)
+        showTypingIndicator();
+        setTimeout(() => {
+          hideTypingIndicator();
+          renderOfferStep();
+        }, 900);
+      }, 650);
+    }
+
+    function renderOfferStep() {
+      if (offerAlreadyRendered) return;
+      offerAlreadyRendered = true;
+      trackEvent("Lead", { content_name: "Quiz_Completed_Offer_Shown" });
+      trackCustomStep("Quiz_Offer_Shown", {
+        nivel: state.answers.nivel || "direct",
+        objetivo: state.answers.objetivo || "direct"
+      });
+      const stream = document.getElementById("chatStream");
+      const timeStr = getTimeString();
+      const checkoutUrl = getCheckoutUrl();
+
+      // Audio simulation bubble
+      const audioRow = document.createElement("div");
+      audioRow.className = "msg-row msg-in";
+      audioRow.innerHTML = `
+        <div class="bubble bubble-in">
+          <div class="audio-note-wrap" onclick="toggleAudioPlayback()">
+            <div class="audio-avatar-stack">
+              <img src="assets/professora-lygia.jpg" alt="Lygia" />
+              <div class="audio-mic-badge" id="audioMicBadge">
+                <svg viewBox="0 0 24 24" width="10" height="10" fill="#ffffff"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+              </div>
+            </div>
+            <div class="audio-play-circle" id="audioPlayIcon">▶</div>
+            <div class="audio-waveform-container">
+              <div class="audio-waveform-bars">
+                <div class="audio-bar" style="height:6px;"></div>
+                <div class="audio-bar" style="height:11px;"></div>
+                <div class="audio-bar" style="height:17px;"></div>
+                <div class="audio-bar" style="height:9px;"></div>
+                <div class="audio-bar" style="height:15px;"></div>
+                <div class="audio-bar" style="height:18px;"></div>
+                <div class="audio-bar" style="height:12px;"></div>
+                <div class="audio-bar" style="height:16px;"></div>
+                <div class="audio-bar" style="height:7px;"></div>
+                <div class="audio-bar" style="height:14px;"></div>
+                <div class="audio-bar" style="height:10px;"></div>
+                <div class="audio-bar" style="height:17px;"></div>
+                <div class="audio-bar" style="height:8px;"></div>
+                <div class="audio-bar" style="height:15px;"></div>
+                <div class="audio-bar" style="height:18px;"></div>
+                <div class="audio-bar" style="height:11px;"></div>
+                <div class="audio-bar" style="height:16px;"></div>
+                <div class="audio-bar" style="height:14px;"></div>
+                <div class="audio-bar" style="height:9px;"></div>
+                <div class="audio-bar" style="height:15px;"></div>
+                <div class="audio-bar" style="height:11px;"></div>
+                <div class="audio-bar" style="height:17px;"></div>
+                <div class="audio-bar" style="height:8px;"></div>
+                <div class="audio-bar" style="height:5px;"></div>
+              </div>
+              <div class="audio-timer-row">
+                <span id="audioTimeLabel">0:17</span>
+                <span>Nota de voz</span>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top:6px;">¡Listo mi vida! 🎉 Ya preparé tu kit navideño completo. Mira todo lo que recibes hoy con acceso inmediato:</p>
+          <span class="msg-time">${timeStr}</span>
+        </div>
+      `;
+      stream.appendChild(audioRow);
+      scrollToBottom(false);
+
+      // Auto-start audio playback smoothly when the audio note arrives
+      setTimeout(() => {
+        if (!isPlayingAudio) {
+          toggleAudioPlayback();
+        }
+      }, 250);
+
+      showTypingIndicator();
+      // Fast offer reveal (700ms instead of 4000ms to prevent mobile drop-off)
+      setTimeout(() => {
+        hideTypingIndicator();
+        const freshCheckoutUrl = getCheckoutUrl();
+        const offerRow = document.createElement("div");
+        offerRow.className = "msg-row msg-in";
+        offerRow.innerHTML = `
+          <div class="catalog-card">
+            <img src="assets/kit-mockup.jpg" alt="Kit Navideño" class="catalog-mockup" />
+            
+            <h3 class="catalog-title">Colección Completa: Mini Muñecas &amp; Amigurumis Navideños</h3>
+
+            <div class="value-stack">
+              <div class="value-stack-title">Lo que recibes hoy:</div>
+              <ul>
+                <li><strong>+45 patrones</strong> de mini muñecas navideñas (Santa, Reno, Elfo, Muñeco de Nieve y más)</li>
+                <li><strong>Sin costuras</strong>: cada pieza en menos de 2 horas</li>
+                <li><strong>Todo en español</strong>, con fotos paso a paso, en PDF para siempre</li>
+              </ul>
+              <div class="value-stack-xmas">🎄 ${getDaysToChristmasText()}</div>
+            </div>
+
+            <div class="catalog-price-box">
+              <div class="old-price">De $47.00 USD por sólo</div>
+              <div class="new-price">$14.99 USD</div>
+              <div class="price-sub">Pago único • Acceso inmediato de por vida (o en tu moneda local)</div>
+            </div>
+
+            <a href="${freshCheckoutUrl}" onclick="return handleCheckoutClick(event, this, 'offer_top_cta')" class="big-checkout-cta">
+              ¡QUIERO MI ACCESO CON LYGIA POR $14.99! →
+            </a>
+
+            <div class="guarantee-note">
+              🛡️ Garantía de 7 días • Reembolso 100% garantizado<br/>
+              <span style="font-size:10.5px; color:#667781;">Soporte: teixeiraligya@gmail.com • Pago internacional seguro</span>
+            </div>
+
+            <div class="sample-pattern" style="margin-top:14px;">
+              <strong>Así de claro es el patrón (sin siglas raras):</strong><br/>
+              • Vuelta 1: 6 puntos bajos en anillo mágico <mark>[6]</mark><br/>
+              • Vuelta 2: 6 aumentos <mark>[12]</mark><br/>
+              • Vuelta 3: (1 punto bajo, 1 aumento) x 6 <mark>[18]</mark><br/>
+              <em>Con fotos paso a paso en cada vuelta.</em>
+            </div>
+
+            <div class="mini-showcase-title">Lo que puedes vender con estos patrones:</div>
+            <div class="mini-showcase">
+              <div class="mini-card">🎅 <strong>Mini Santa</strong><span>Vende por $8-$12</span></div>
+              <div class="mini-card">😇 <strong>Angelito</strong><span>Vende por $7-$10</span></div>
+              <div class="mini-card">⛪ <strong>Sagrada Familia</strong><span>Vende por $25-$38</span></div>
+              <div class="mini-card">🦌 <strong>Mini Reno</strong><span>Vende por $8-$12</span></div>
+            </div>
+
+            <a href="${freshCheckoutUrl}" onclick="return handleCheckoutClick(event, this, 'offer_bottom_cta')" class="big-checkout-cta" style="margin-top:14px;">
+              ACCEDER A LOS +45 PATRONES AHORA ($14.99) →
+            </a>
+          </div>
+        `;
+        stream.appendChild(offerRow);
+        scrollToBottom(false);
+        setTimeout(() => scrollToBottom(false), 200);
+
+        // 7 seconds after offer appears, send interactive FAQ message with real YouTube doubts + step-by-step GIF
+        setTimeout(() => {
+          showTypingIndicator();
+          setTimeout(() => {
+            hideTypingIndicator();
+            renderFaqStep(true);
+          }, 800);
+        }, 7000);
+      }, 700);
+    }
+
+    /* Top Repeated Doubts from Real Spanish YouTube Amigurumi Comments */
+    const faqItems = [
+      {
+        q: "🧶 ¿Qué hilo y ganchillo necesito?",
+        a: `Solo necesitas unos <strong>10 gramos</strong> de estambre o hilo de algodón (¡incluso sobrantes que ya tengas en casa!) y un ganchillo de <strong>3.0 mm a 4.0 mm</strong>. Si quieres que tu muñequita quede más chiquita (5 a 7 cm), usa ganchillo de 3.0 mm o 3.5 mm.`
+      },
+      {
+        q: "🌱 ¿Y si no sé hacer el anillo mágico?",
+        a: `¡No te preocupes para nada! Todas las guías traen fotos paso a paso en español. Y si el anillo mágico se te complica al inicio, puedes usar el <strong>truco fácil de las 2 cadenitas</strong>: haces 2 cadenas y tejes todos los puntos en la primera. ¡Queda igualito de cerrado!`
+      },
+      {
+        q: "👀 ¿Y si no tengo ojos ni marcador?",
+        a: `¡Con lo que tienes en casa puedes empezar hoy mismo! El marcador de puntos lo reemplazas con un <strong>pedacito de hilo de otro color</strong>, y los ojitos los puedes <strong>bordar con hilo negro</strong> (quedan preciosos y son 100% seguros si son para niños).`
+      },
+      {
+        q: "💰 ¿En cuánto los vendo y cómo cobro?",
+        a: `Cada mini llavero se vende fácil entre <strong>$8 y $12 USD</strong> (y la Sagrada Familia entre <strong>$25 y $38 USD</strong>). En la guía aprendes a calcular tu precio sin pena de cobrar — como dicen las maestras: <em>no cobras solo por el hilo, sino por tu arte hecho a mano</em>. 💛`
+      }
+    ];
+
+    const answeredFaqIndices = new Set();
+    let faqRenderCounter = 0;
+
+    function buildFaqButtonsHtml(stackId) {
+      const remaining = faqItems
+        .map((item, idx) => ({ item, idx }))
+        .filter(({ idx }) => !answeredFaqIndices.has(idx));
+      const list = remaining.length > 0 ? remaining : faqItems.map((item, idx) => ({ item, idx }));
+
+      const buttons = list.map(({ item, idx }) => `
+        <button class="wa-action-btn" onclick="handleFaqSelect(${idx}, '${stackId}')">
+          <svg class="wa-btn-reply-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/>
+          </svg>
+          <span>${item.q}</span>
+        </button>
+      `).join("");
+
+      return `<div class="wa-button-stack" id="${stackId}">${buttons}</div>`;
+    }
+
+    function renderFaqStep(includeGif = true) {
+      const stream = document.getElementById("chatStream");
+      const timeStr = getTimeString();
+      faqRenderCounter++;
+      const stackId = `faqStack_${faqRenderCounter}`;
+
+      const gifHtml = includeGif ? `
+        <div class="msg-video-wrap" style="aspect-ratio: 440 / 236;" onclick="openImageModal('assets/paso-a-paso-dudas.gif')" title="Toca para ver en grande">
+          <img src="assets/paso-a-paso-dudas.gif" alt="Ejemplo visual paso a paso de los puntos" onload="scrollToBottom(true)" />
+        </div>
+      ` : "";
+
+      const introText = includeGif
+        ? `¿Te quedó alguna dudita antes de empezar, mi corazón? 💕 Mira qué clarito se ve el paso a paso por dentro.<br/><br/>Muchas alumnas me preguntan lo mismo antes de tejer su primera muñequita — <strong>toca cualquier duda abajo</strong> y te respondo ahorita:`
+        : `Claro que sí, mi cielo 💕 ¿Qué otra dudita quieres aclarar antes de entrar al taller?`;
+
+      const row = document.createElement("div");
+      row.className = "msg-row msg-in";
+      row.id = includeGif ? "faqWelcomeCard" : `faqFollowup_${faqRenderCounter}`;
+      row.innerHTML = `
+        <div class="interactive-card">
+          <div class="interactive-body">
+            ${gifHtml}
+            <div>${introText}</div>
+          </div>
+          <div class="interactive-footer">
+            <span>Toca una pregunta abajo:</span>
+            <span class="msg-time">${timeStr}</span>
+          </div>
+          ${buildFaqButtonsHtml(stackId)}
+        </div>
+      `;
+
+      stream.appendChild(row);
+      scrollToBottom(true);
+      setTimeout(() => scrollToBottom(true), 180);
+    }
+
+    function handleFaqSelect(faqIdx, stackId) {
+      const item = faqItems[faqIdx];
+      if (!item) return;
+      answeredFaqIndices.add(faqIdx);
+
+      const stack = document.getElementById(stackId);
+      if (stack) {
+        const btns = stack.querySelectorAll(".wa-action-btn");
+        btns.forEach((btn) => {
+          btn.classList.add("disabled");
+          btn.onclick = null;
+          if (!btn.textContent.includes(item.q)) {
+            btn.style.opacity = "0.45";
+          }
+        });
+      }
+
+      const stream = document.getElementById("chatStream");
+      const userRow = document.createElement("div");
+      userRow.className = "msg-row msg-out";
+      userRow.innerHTML = `
+        <div class="bubble bubble-out">
+          <span>${item.q}</span>
+          <span class="msg-time">${getTimeString()} ${doubleCheckSvg}</span>
+        </div>
+      `;
+      stream.appendChild(userRow);
+      scrollToBottom(true);
+
+      showTypingIndicator();
+      setTimeout(() => {
+        hideTypingIndicator();
+        const checkoutUrl = getCheckoutUrl();
+        const hasMore = answeredFaqIndices.size < faqItems.length;
+        const answerRow = document.createElement("div");
+        answerRow.className = "msg-row msg-in";
+        answerRow.innerHTML = `
+          <div class="interactive-card">
+            <div class="interactive-body">
+              <div>${item.a}</div>
+            </div>
+            <div class="interactive-footer">
+              <span>Maestra Lygia</span>
+              <span class="msg-time">${getTimeString()}</span>
+            </div>
+            <div class="wa-button-stack">
+              <a href="${checkoutUrl}" onclick="return handleCheckoutClick(event, this, 'faq_cta')" class="wa-action-btn" style="font-weight:700; color:#008069;">
+                <span>✅ ¡Listo, quiero mi acceso por $14.99! →</span>
+              </a>
+              ${hasMore ? `
+                <button class="wa-action-btn" onclick="this.classList.add('disabled'); this.onclick=null; renderFaqStep(false);">
+                  <span>❓ Ver otra duda</span>
+                </button>
+              ` : ""}
+            </div>
+          </div>
+        `;
+        stream.appendChild(answerRow);
+        scrollToBottom(true);
+        setTimeout(() => scrollToBottom(true), 150);
+      }, 950);
+    }
+
+    function handleOptionSelect(idx) {
+      const stepData = chatScript[state.stepIndex];
+      const selected = stepData.options[idx];
+
+      state.answers[stepData.key] = selected;
+
+      // Dismiss guidance toast if active
+      const toast = document.getElementById("inputHintToast");
+      if (toast) toast.classList.remove("show");
+
+      // Disable buttons to lock history like official WhatsApp API
+      const btnStack = document.getElementById("btnStack");
+      if (btnStack) {
+        const btns = btnStack.querySelectorAll(".wa-action-btn");
+        btns.forEach((btn, bIdx) => {
+          btn.classList.add("disabled");
+          btn.onclick = null;
+          if (bIdx !== idx) {
+            btn.style.opacity = "0.45";
+          }
+        });
+        btnStack.removeAttribute("id");
+      }
+
+      // Append user outgoing message with true bubble tail and double checkmark
+      const stream = document.getElementById("chatStream");
+      const userRow = document.createElement("div");
+      userRow.className = "msg-row msg-out";
+      userRow.innerHTML = `
+        <div class="bubble bubble-out">
+          <span>${selected}</span>
+          <span class="msg-time">${getTimeString()} ${doubleCheckSvg}</span>
+        </div>
+      `;
+      stream.appendChild(userRow);
+      scrollToBottom(false);
+
+      // Track quiz progression per step so we can diagnose drop-off in Meta Events Manager
+      trackCustomStep(`Quiz_Step${state.stepIndex + 1}_${stepData.key}`, {
+        answer: selected,
+        option_index: idx
+      });
+
+      // Fast-track option 3 in Step 0 ("Ver los +45 patrones ahora mismo") straight to the Offer
+      if (state.stepIndex === 0 && idx === 2) {
+        state.stepIndex = chatScript.length;
+        showTypingIndicator();
+        setTimeout(() => {
+          hideTypingIndicator();
+          renderOfferStep();
+        }, 550);
+        return;
+      }
+
+      // Advance
+      state.stepIndex++;
+      const nextStepData = chatScript[state.stepIndex];
+
+      if (nextStepData) {
+        showTypingIndicator();
+        setTimeout(() => {
+          hideTypingIndicator();
+          if (nextStepData.type === "social_proof_and_offer") {
+            renderSocialProofAndOfferStep(nextStepData);
+          } else if (nextStepData.type === "offer") {
+            renderOfferStep();
+          } else {
+            renderInteractiveStep(nextStepData);
+          }
+        }, 650);
+      }
+    }
+
+    let hintTimeout = null;
+
+    function showInputHint() {
+      const toast = document.getElementById("inputHintToast");
+      const btnStack = document.getElementById("btnStack");
+
+      if (toast) {
+        toast.classList.add("show");
+        if (hintTimeout) clearTimeout(hintTimeout);
+        hintTimeout = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3200);
+      }
+
+      if (btnStack) {
+        btnStack.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        btnStack.classList.remove("highlight-buttons");
+        void btnStack.offsetWidth; // trigger CSS animation reflow
+        btnStack.classList.add("highlight-buttons");
+      }
+    }
+
+    function openImageModal(src) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      if (modal && modalImg) {
+        modalImg.src = src;
+        modal.classList.add("open");
+      }
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById("imageModal");
+      if (modal) {
+        modal.classList.remove("open");
+      }
+    }
+
+    // Initialize first step and guarantee all 3 buttons are immediately in view
+    trackEvent("ViewContent", {
+      content_name: "Mundo Amigurumi Navideño - Quiz WhatsApp",
+      content_category: "Amigurumis",
+      value: 14.99,
+      currency: "USD"
+    });
+    renderInteractiveStep(chatScript[0]);
+    scrollToBottom(false);
+    setTimeout(() => scrollToBottom(false), 80);
+    setTimeout(() => scrollToBottom(false), 200);
+    setTimeout(() => scrollToBottom(false), 500);
+    window.addEventListener("load", () => scrollToBottom(false));
+    window.addEventListener("resize", () => scrollToBottom(false));
+  </script>
+  <!-- Hidden static Cakto anchor present on initial DOM load so Cakto tracker.js can decorate it -->
+  <a id="caktoTrackerAnchor" href="https://pay.cakto.com.br/3nopg6v_1345306" style="display:none" aria-hidden="true" tabindex="-1"></a>
+  <!-- Cakto Analytics UTM & 90-Day Checkout Attribution Tracker -->
+  <script src="https://api.cakto.com.br/api/product/checkout/tracker.js" async></script>
+</body>
+</html>

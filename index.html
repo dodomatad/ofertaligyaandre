@@ -204,6 +204,19 @@
     .pdf-modal.open{display:flex}
     .pdf-modal-inner{position:relative;max-width:440px;width:100%;max-height:92vh;overflow:auto;background:#FFFFFF;border-radius:16px;padding:12px}
     .pdf-modal-close{position:sticky;top:0;float:right;background:var(--ink);color:#FFFFFF;border:none;border-radius:999px;padding:6px 13px;font-family:var(--font-head);font-size:12px;font-weight:800;margin-bottom:8px}
+
+    /* BACK REDIRECT / EXIT OFFER MODAL ($9.99) */
+    .exit-modal{position:fixed;inset:0;background:rgba(15,23,42,0.84);backdrop-filter:blur(4px);z-index:250;display:none;align-items:center;justify-content:center;padding:14px}
+    .exit-modal.open{display:flex}
+    .exit-card{position:relative;max-width:430px;width:100%;max-height:94vh;overflow:auto;background:#FFFFFF;border-radius:22px;padding:22px 18px 18px;text-align:center;border:2.5px solid var(--green);box-shadow:0 24px 50px rgba(0,0,0,0.34);animation:popIn 0.22s ease}
+    @keyframes popIn{from{opacity:0;transform:scale(0.94) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .exit-close{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:#F8FAFC;color:var(--ink-muted);font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center}
+    .exit-pill{display:inline-block;background:#FEE2E2;color:#B91C1C;border:1px solid #FECACA;font-family:var(--font-head);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;padding:5px 12px;border-radius:999px;margin-bottom:10px}
+    .exit-card h3{font-size:clamp(20px,5.2vw,24px);font-weight:900;line-height:1.2;margin-bottom:8px}
+    .exit-sub{font-size:14px;color:var(--ink-body);line-height:1.45;margin-bottom:12px}
+    .exit-box{background:#F8FAFC;border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:14px}
+    .exit-list{list-style:none;text-align:left;font-size:13.2px;color:var(--ink);display:flex;flex-direction:column;gap:5px;margin-top:8px}
+    .exit-dismiss{display:inline-block;margin-top:12px;background:none;border:none;color:var(--ink-muted);font-size:12.5px;font-weight:600;text-decoration:underline}
   </style>
 </head>
 <body>
@@ -233,7 +246,7 @@
         </div>
       </div>
 
-      <a href="#oferta" id="heroCtaBtn" class="cta-btn" onclick="trackCustom('Hero_Scroll_To_Offer')">
+      <a href="#oferta" id="heroCtaBtn" class="cta-btn" onclick="return scrollToOffer(event, 'Hero_Scroll_To_Offer')">
         QUIERO EL KIT COMPLETO AHORA
       </a>
 
@@ -355,7 +368,7 @@
         </div>
       </div>
 
-      <a href="#oferta" class="cta-btn" onclick="trackCustom('Mid_Scroll_To_Offer')">
+      <a href="#oferta" class="cta-btn" onclick="return scrollToOffer(event, 'Mid_Scroll_To_Offer')">
         VER LA OFERTA ESPECIAL DE HOY →
       </a>
     </div>
@@ -564,9 +577,45 @@
     </div>
   </div>
 
+  <!-- BACK REDIRECT / DESCONTO DE SAIDA ($9.99 USD) -->
+  <div class="exit-modal" id="exitOfferModal" onclick="closeExitOffer()" role="dialog" aria-modal="true" aria-label="Oferta especial de último momento">
+    <div class="exit-card" onclick="event.stopPropagation()">
+      <button type="button" class="exit-close" onclick="closeExitOffer()" aria-label="Cerrar">✕</button>
+      <div class="exit-pill">🎁 ¡ESPERA! DESCUENTO ANTES DE SALIR</div>
+      <h3>Llévate el Kit Completo hoy por solo <span class="hl">$9.99 USD</span></h3>
+      <p class="exit-sub">Antes de irte, activamos un <strong>descuento exclusivo de $5 USD</strong> para que empieces a tejer hoy mismo.</p>
+
+      <div class="exit-box">
+        <div class="price-old">De <s>$14.99 USD</s> hoy solo</div>
+        <div class="price-now" style="font-size:38px;">$9.99 <small>USD</small></div>
+        <div class="local-price" style="margin:4px 0 6px;" data-local-price-999>Conversión automática a tu moneda local</div>
+        <ul class="exit-list">
+          <li><strong style="color:var(--green);">✓</strong> Las mismas <strong>5 guías PDF (+45 patrones sin costuras)</strong></li>
+          <li><strong style="color:var(--green);">✓</strong> <strong>3 Bonos Gratis:</strong> Pesebre + 40 Minis + Videoteca</li>
+          <li><strong style="color:var(--green);">✓</strong> Acceso inmediato vitalicio + <strong>Garantía de 7 días</strong></li>
+        </ul>
+      </div>
+
+      <a href="https://pay.cakto.com.br/38i8zws" data-cakto-cta="true" onclick="return handleCheckoutClick(event, this, 'back_redirect_999', 9.99)" class="cta-btn full">
+        SÍ, APROVECHAR POR $9.99 USD →
+      </a>
+      <button type="button" class="exit-dismiss" onclick="closeExitOffer()">No gracias, prefiero cerrar esta promoción</button>
+    </div>
+  </div>
+
   <script>
     const CHECKOUT_BASE_URL = "https://pay.cakto.com.br/3nopg6v_1345306";
     const UTM_STORAGE_KEY = "amig_utm_qs_v2";
+    const EXIT_MODAL_KEY = "amig_exit_999_shown_v1";
+    const PAGE_OPEN_TS = Date.now();
+
+    function scrollToOffer(event, eventTag) {
+      if (event) event.preventDefault();
+      trackCustom(eventTag || "Scroll_To_Offer");
+      const target = document.getElementById("oferta");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      return false;
+    }
 
     (function persistInboundTrackingParams() {
       try {
@@ -593,8 +642,8 @@
         }
         return finalUrl.toString();
       } catch (e) {
-        if (!inboundQs) return CHECKOUT_BASE_URL;
-        return CHECKOUT_BASE_URL + (CHECKOUT_BASE_URL.includes("?") ? "&" : "?") + inboundQs;
+        if (!inboundQs) return base;
+        return base + (base.includes("?") ? "&" : "?") + inboundQs;
       }
     }
 
@@ -615,14 +664,15 @@
     }
 
     let checkoutRedirectPending = false;
-    function handleCheckoutClick(event, anchorEl, sourceTag) {
+    function handleCheckoutClick(event, anchorEl, sourceTag, customValue) {
       const finalUrl = buildMergedCheckoutUrl(anchorEl ? anchorEl.href : CHECKOUT_BASE_URL);
       if (anchorEl) anchorEl.href = finalUrl;
+      const val = typeof customValue === "number" ? customValue : 14.99;
 
       trackEvent("InitiateCheckout", {
-        value: 14.99,
+        value: val,
         currency: "USD",
-        content_name: "Colección Completa: +45 Mini Amigurumis Navideños",
+        content_name: val === 9.99 ? "Colección Completa (Descuento Salida $9.99)" : "Colección Completa: +45 Mini Amigurumis Navideños",
         content_category: "Amigurumis",
         num_items: 1,
         cta_source: sourceTag || "page_cta"
@@ -639,6 +689,43 @@
       }, 180);
       return false;
     }
+
+    function hasShownExitOffer() {
+      try { return sessionStorage.getItem(EXIT_MODAL_KEY) === "1"; } catch (e) { return false; }
+    }
+    function showExitOffer(trigger) {
+      if (hasShownExitOffer() || checkoutRedirectPending) return;
+      const modal = document.getElementById("exitOfferModal");
+      if (!modal) return;
+      try { sessionStorage.setItem(EXIT_MODAL_KEY, "1"); } catch (e) {}
+      syncAllCheckoutLinks();
+      modal.classList.add("open");
+      trackCustom("Exit_BackRedirect_999_Shown", { trigger: trigger || "unknown" });
+    }
+    function closeExitOffer() {
+      const modal = document.getElementById("exitOfferModal");
+      if (modal) modal.classList.remove("open");
+    }
+
+    (function initBackRedirectAndExitIntent() {
+      try {
+        if (!hasShownExitOffer()) {
+          window.history.pushState({ backGuard999: true }, "", window.location.href);
+        }
+      } catch (e) {}
+
+      window.addEventListener("popstate", () => {
+        if (!hasShownExitOffer() && !checkoutRedirectPending && (Date.now() - PAGE_OPEN_TS) >= 1500) {
+          showExitOffer("mobile_back");
+        }
+      });
+
+      document.addEventListener("mouseout", (e) => {
+        if (!e.relatedTarget && e.clientY <= 4 && (Date.now() - PAGE_OPEN_TS) >= 5000) {
+          showExitOffer("desktop_exit");
+        }
+      });
+    })();
 
     function updateChristmasBanner() {
       const now = new Date();
@@ -671,18 +758,18 @@
     function updateLocalCurrencyHint() {
       let tz = "";
       try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
-      let approx = "";
-      if (/Mexico|Monterrey|Tijuana|Cancun|Merida|Chihuahua|Mazatlan|Hermosillo/i.test(tz)) approx = "≈ $299 MXN aprox. (conversión automática)";
-      else if (/Madrid|Canary|Ceuta/i.test(tz)) approx = "≈ 14,00 € aprox. en España (conversión automática)";
-      else if (/Santiago/i.test(tz)) approx = "≈ $14.500 CLP aprox. en Chile (conversión automática)";
-      else if (/Argentina|Buenos_Aires|Cordoba|Mendoza|Rosario|Salta/i.test(tz)) approx = "≈ $15.900 ARS aprox. en Argentina (conversión automática)";
-      else if (/Costa_Rica/i.test(tz)) approx = "≈ ₡7.800 CRC aprox. en Costa Rica";
-      else if (/Montevideo/i.test(tz)) approx = "≈ $630 UYU aprox. en Uruguay";
-      else if (/Bogota/i.test(tz)) approx = "≈ $63.000 COP aprox. en Colombia";
-      else if (/Lima/i.test(tz)) approx = "≈ S/ 56 PEN aprox. en Perú";
-      else if (/Panama|New_York|Chicago|Denver|Los_Angeles|Phoenix|Detroit|Miami|Puerto_Rico/i.test(tz)) approx = "Pago directo en USD ($14.99) • Sin mensualidades";
-      if (!approx) return;
-      document.querySelectorAll("[data-local-price]").forEach((el) => { el.textContent = approx; });
+      let approx = "", approx999 = "";
+      if (/Mexico|Monterrey|Tijuana|Cancun|Merida|Chihuahua|Mazatlan|Hermosillo/i.test(tz)) { approx = "≈ $299 MXN aprox. (conversión automática)"; approx999 = "≈ $199 MXN aprox. (ahorras $100 MXN hoy)"; }
+      else if (/Madrid|Canary|Ceuta/i.test(tz)) { approx = "≈ 14,00 € aprox. en España (conversión automática)"; approx999 = "≈ 9,30 € aprox. en España (descuento hoy)"; }
+      else if (/Santiago/i.test(tz)) { approx = "≈ $14.500 CLP aprox. en Chile (conversión automática)"; approx999 = "≈ $9.700 CLP aprox. en Chile"; }
+      else if (/Argentina|Buenos_Aires|Cordoba|Mendoza|Rosario|Salta/i.test(tz)) { approx = "≈ $15.900 ARS aprox. en Argentina (conversión automática)"; approx999 = "≈ $10.600 ARS aprox. en Argentina"; }
+      else if (/Costa_Rica/i.test(tz)) { approx = "≈ ₡7.800 CRC aprox. en Costa Rica"; approx999 = "≈ ₡5.200 CRC aprox. en Costa Rica"; }
+      else if (/Montevideo/i.test(tz)) { approx = "≈ $630 UYU aprox. en Uruguay"; approx999 = "≈ $420 UYU aprox. en Uruguay"; }
+      else if (/Bogota/i.test(tz)) { approx = "≈ $63.000 COP aprox. en Colombia"; approx999 = "≈ $42.000 COP aprox. en Colombia"; }
+      else if (/Lima/i.test(tz)) { approx = "≈ S/ 56 PEN aprox. en Perú"; approx999 = "≈ S/ 37 PEN aprox. en Perú"; }
+      else if (/Panama|New_York|Chicago|Denver|Los_Angeles|Phoenix|Detroit|Miami|Puerto_Rico/i.test(tz)) { approx = "Pago directo en USD ($14.99) • Sin mensualidades"; approx999 = "Pago directo en USD ($9.99) • Un solo pago"; }
+      if (approx) document.querySelectorAll("[data-local-price]").forEach((el) => { el.textContent = approx; });
+      if (approx999) document.querySelectorAll("[data-local-price-999]").forEach((el) => { el.textContent = approx999; });
     }
 
     let lygiaAudio = null, audioPlaying = false, audioTracked = false;

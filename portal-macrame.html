@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Portal VIP · Navidad en Macramé (+100 Proyectos + 8 Bonos)</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#091410" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-base: #09130F;
+      --bg-surface: #111F19;
+      --bg-card: #162820;
+      --bg-card-hover: #1D352B;
+      --crimson: #C81E3A;
+      --crimson-hover: #E11D48;
+      --gold: #F5C451;
+      --gold-soft: rgba(245, 196, 81, 0.14);
+      --green: #16A34A;
+      --green-bright: #22C55E;
+      --ink: #F8FAF9;
+      --ink-soft: #C7D4CE;
+      --ink-muted: #8AA196;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-gold: rgba(245, 196, 81, 0.34);
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(ellipse 80% 45% at 50% 0%, rgba(160, 24, 48, 0.24), transparent 65%),
+        radial-gradient(ellipse 70% 45% at 85% 20%, rgba(245, 196, 81, 0.08), transparent 60%),
+        var(--bg-base);
+      color: var(--ink);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding-bottom: 84px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a, button { font-family: inherit; cursor: pointer; }
+
+    /* TOP NAVBAR ESTILO NETFLIX NATALINO */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(9, 19, 15, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+    }
+    .topbar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--crimson) 0%, #7F1D1D 100%);
+      border: 1px solid rgba(245, 196, 81, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      box-shadow: 0 4px 14px rgba(200, 30, 58, 0.35);
+      flex-shrink: 0;
+    }
+    .brand-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 15.5px;
+      letter-spacing: 0.2px;
+      line-height: 1.1;
+    }
+    .brand-text span {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold);
+    }
+    .top-links {
+      display: none;
+      align-items: center;
+      gap: 20px;
+    }
+    @media (min-width: 820px) { .top-links { display: flex; } }
+    .top-links a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .top-links a:hover { color: var(--gold); }
+    .progress-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .progress-mini-bar {
+      width: 44px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-mini-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--green-bright));
+      transition: width 0.3s ease;
+    }
+
+    /* CONTAINER */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+
+    /* HERO BILLBOARD CINEMATOGRÁFICO (ESTILO NETFLIX) */
+    .hero-wrap { padding: 18px 0 12px; }
+    .billboard {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      background: var(--bg-surface);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 860px) {
+      .billboard { grid-template-columns: 1.15fr 0.85fr; align-items: center; }
+    }
+    .billboard-content {
+      position: relative;
+      z-index: 2;
+      padding: 26px 20px 24px;
+    }
+    @media (min-width: 860px) { .billboard-content { padding: 40px 38px; } }
+    .vip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold-soft);
+      border: 1px solid var(--border-gold);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .billboard h1 {
+      font-family: var(--font-display);
+      font-size: clamp(27px, 5.5vw, 44px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+      font-size: 12.8px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+    .meta-match { color: #4ADE80; }
+    .meta-hd {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 10.5px;
+      color: #FFFFFF;
+    }
+    .billboard-desc {
+      font-size: 14.8px;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+      max-width: 540px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      border: none;
+      transition: transform 0.14s ease, filter 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, #22C55E 0%, #15803D 100%);
+      color: #FFFFFF;
+      box-shadow: 0 10px 24px rgba(22, 163, 74, 0.35);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #F5C451 0%, #D97706 100%);
+      color: #1A1204;
+      box-shadow: 0 10px 24px rgba(245, 196, 81, 0.25);
+    }
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.10);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(8px);
+    }
+    .btn-unlock {
+      width: 100%;
+      background: linear-gradient(135deg, var(--crimson) 0%, #991B1B 100%);
+      color: #FFFFFF;
+      box-shadow: 0 8px 20px rgba(200, 30, 58, 0.35);
+    }
+    .btn-sm {
+      padding: 9px 13px;
+      font-size: 12.8px;
+      border-radius: 10px;
+      width: 100%;
+    }
+    .billboard-art {
+      position: relative;
+      min-height: 250px;
+      background: #13221B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .billboard-art img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 16px;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(245, 196, 81, 0.25);
+    }
+
+    /* PRATELEIRAS ESTILO NETFLIX */
+    .shelf { padding: 26px 0 8px; }
+    .shelf-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .shelf-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 4.4vw, 26px);
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+    .shelf-head p {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-top: 3px;
+    }
+    .swipe-hint {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--gold);
+      background: var(--gold-soft);
+      border: 1px solid var(--border-gold);
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* CARROSSEL HORIZONTAL NETFLIX */
+    .rail {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 2px 14px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(245, 196, 81, 0.35) transparent;
+    }
+    .rail::-webkit-scrollbar { height: 6px; }
+    .rail::-webkit-scrollbar-thumb { background: rgba(245, 196, 81, 0.35); border-radius: 999px; }
+
+    /* POSTER CARD NETFLIX */
+    .nf-card {
+      flex: 0 0 232px;
+      scroll-snap-align: start;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .nf-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+    }
+    .nf-card.done { border-color: rgba(34, 197, 94, 0.55); }
+    .nf-poster {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #0F1D17;
+    }
+    .nf-poster.wide { aspect-ratio: 4 / 3; }
+    .nf-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .nf-card:hover .nf-poster img { transform: scale(1.04); }
+    .nf-poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 19, 15, 0.08) 0%, rgba(9, 19, 15, 0.05) 55%, rgba(9, 19, 15, 0.88) 100%);
+      pointer-events: none;
+    }
+    .poster-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      background: rgba(9, 19, 15, 0.82);
+      backdrop-filter: blur(6px);
+      color: var(--gold);
+      border: 1px solid var(--border-gold);
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+    .poster-tag.free {
+      background: rgba(22, 163, 74, 0.92);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .poster-tag.lock {
+      background: rgba(200, 30, 58, 0.94);
+      color: #FFFFFF;
+      border-color: rgba(245, 196, 81, 0.5);
+    }
+    .poster-pages {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 2;
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: rgba(0, 0, 0, 0.62);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .nf-body {
+      padding: 13px 13px 14px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 7px;
+    }
+    .nf-body h3 {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.28;
+    }
+    .nf-body p {
+      font-size: 12.6px;
+      color: var(--ink-muted);
+      line-height: 1.42;
+      flex: 1;
+    }
+    .done-toggle {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin-top: 2px;
+      user-select: none;
+    }
+    .done-toggle input {
+      accent-color: var(--green-bright);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    /* GRID VITRINE VIP (LOCKED UPSELLS) */
+    .vitrine-section {
+      margin-top: 28px;
+      padding: 26px 20px;
+      border-radius: 22px;
+      background: linear-gradient(155deg, rgba(127, 29, 29, 0.26) 0%, rgba(17, 31, 25, 0.95) 55%, rgba(9, 19, 15, 0.98) 100%);
+      border: 1px solid var(--border-gold);
+    }
+    .vitrine-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (min-width: 620px) { .vitrine-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1020px) { .vitrine-grid { grid-template-columns: repeat(4, 1fr); } }
+    .vitrine-grid .nf-card { flex: none; width: 100%; }
+    .vip-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 2px 0 4px;
+    }
+    .vip-price s { font-size: 12.5px; color: var(--ink-muted); }
+    .vip-price strong { font-size: 19px; color: var(--gold); font-weight: 900; }
+
+    /* MODAL CINEMA (NUDOS E PREVIEW) */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(4, 10, 8, 0.88);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      max-width: 520px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+    }
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .modal-top h3 { font-family: var(--font-display); font-size: 20px; color: var(--gold); }
+    .modal-close {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .modal-img { width: 100%; border-radius: 14px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .modal-text { font-size: 14px; color: var(--ink-soft); line-height: 1.58; }
+
+    /* RODAPÉ + MENU MOBILE */
+    .portal-footer {
+      text-align: center;
+      padding: 34px 16px 24px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+    }
+    .portal-footer a { color: var(--gold); text-decoration: none; }
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 90;
+      background: rgba(9, 19, 15, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 8px 6px;
+    }
+    @media (min-width: 820px) { .bottom-nav { display: none; } }
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--ink-muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .bottom-nav a:hover, .bottom-nav a.active { color: var(--gold); }
+    .bottom-nav span.ico { font-size: 17px; line-height: 1; }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 78px;
+      transform: translateX(-50%) translateY(20px);
+      background: #14532D;
+      color: #FFFFFF;
+      border: 1px solid rgba(74, 222, 128, 0.45);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 150;
+      white-space: nowrap;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR NETFLIX -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#inicio">
+        <div class="brand-mark">🎄</div>
+        <div class="brand-text">
+          <strong>Navidad en Macramé</strong>
+          <span>Portal VIP · Alumnas</span>
+        </div>
+      </a>
+
+      <nav class="top-links" aria-label="Navegación principal">
+        <a href="#coleccion">Mi Colección</a>
+        <a href="#nudos">4 Nudos Base</a>
+        <a href="#bonos">8 Bonos Gratis</a>
+        <a href="#vitrine">🔒 Más Talleres</a>
+      </nav>
+
+      <div class="progress-pill" title="Tu progreso de descargas">
+        <span id="progressText">0/10</span>
+        <div class="progress-mini-bar"><div class="progress-mini-fill" id="progressFill"></div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO BILLBOARD PRINCIPAL -->
+    <section class="hero-wrap" id="inicio">
+      <div class="billboard">
+        <div class="billboard-content">
+          <div class="vip-badge">★ Colección Completa Desbloqueada • Acceso Vitalicio</div>
+          <h1>Navidad en Macramé:<br />+100 Proyectos Paso a Paso</h1>
+          <div class="meta-row">
+            <span class="meta-match">100% Liberado</span>
+            <span>115 Páginas</span>
+            <span>8 Bonos Incluidos</span>
+            <span>Español Neutro</span>
+            <span class="meta-hd">PDF HD</span>
+          </div>
+          <p class="billboard-desc">
+            ¡Bienvenida a tu Taller Navideño! Aquí tienes acceso inmediato y de por vida a tu guía principal con +100 adornos paso a paso, los 4 nudos base ilustrados y tus 8 bonos exclusivos para descargar en tu celular o imprimir.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" download onclick="markDone('guia-principal')">
+              ⬇ Descargar Guía Principal (115 págs)
+            </a>
+            <a class="btn btn-gold" href="pdfs-macrame/Pack_8_Bonos_Completos_Navidad_Macrame.pdf" download onclick="markDone('pack-8-bonos')">
+              🎁 Descargar Pack 8 Bonos (1 PDF)
+            </a>
+          </div>
+        </div>
+
+        <div class="billboard-art">
+          <img src="macrame-assets/hero-bundle.webp" alt="Colección Completa Navidad en Macramé +100 Proyectos y 8 Bonos" width="960" height="1050" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PRATELEIRA 1: GUÍA PRINCIPAL + CATEGORÍAS -->
+    <section class="shelf" id="coleccion">
+      <div class="shelf-head">
+        <div>
+          <h2>📘 Tu Colección Principal y Capítulos</h2>
+          <p>Descarga el libro completo o explora las 5 categorías navideñas listas para tejer.</p>
+        </div>
+        <span class="swipe-hint">Desliza →</span>
+      </div>
+
+      <div class="rail">
+        <article class="nf-card" data-card="guia-principal">
+          <div class="nf-poster">
+            <span class="poster-tag free">✓ LIBERADO</span>
+            <span class="poster-pages">115 páginas • PDF</span>
+            <img src="macrame-assets/capa-guia.webp" alt="Portada Navidad en Macramé +100 Proyectos" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Guía Principal (+100 Proyectos)</h3>
+            <p>Libro completo en español neutro con materiales, 4 nudos base y 109 proyectos paso a paso.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" download onclick="markDone('guia-principal')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="guia-principal" /> Marcar como descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster">
+            <span class="poster-tag">INICIO RÁPIDO</span>
+            <span class="poster-pages">15 min • Visual</span>
+            <img src="macrame-assets/capa-4-pasos.webp" alt="Tu Primer Adorno en 15 Minutos" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Tu Primer Adorno en 15 Min</h3>
+            <p>Infografía visual con los 4 pasos exactos para hacer tu primera estrella hoy mismo.</p>
+            <button type="button" class="btn btn-glass btn-sm" onclick="openModal('Tu Primer Adorno en 15 Minutos','macrame-assets/capa-4-pasos.webp','Sigue los 4 pasos en orden: Paso 1 (Nudo Alondra en el aro de madera), Paso 2 (Nudo Cuadrado), Paso 3 (Nudo Festón para dar forma) y Paso 4 (Peina los flecos y recorta). Solo necesitas 3 metros de cuerda de algodón de 3 mm.')">👁 Ver en grande</button>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster">
+            <span class="poster-tag">RUTA 4 DÍAS</span>
+            <span class="poster-pages">Plan exprés</span>
+            <img src="macrame-assets/capa-4-dias.webp" alt="Crea tus adornos navideños en 4 días" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Plan Exprés en 4 Días</h3>
+            <p>Día 1: 4 nudos base · Día 2: Árbol y Estrella · Día 3: Ángel y Corona · Día 4: Empaque y venta.</p>
+            <a class="btn btn-glass btn-sm" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" target="_blank" rel="noopener">📖 Abrir Guía PDF</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">CAPÍTULO 1</span>
+            <span class="poster-pages">24 proyectos</span>
+            <img src="macrame-assets/cat1-arbol.webp" alt="Categoría 1: Para el Árbol de Navidad" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Para el Árbol de Navidad</h3>
+            <p>Mini árboles, bastones, campanas, coronitas, corazones y adornos ligeros para colgar.</p>
+            <a class="btn btn-glass btn-sm" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" target="_blank" rel="noopener">📖 Ver en el libro</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">CAPÍTULO 2</span>
+            <span class="poster-pages">20 proyectos</span>
+            <img src="macrame-assets/cat2-coronas.webp" alt="Categoría 2: Coronas y Guirnaldas" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Coronas y Guirnaldas</h3>
+            <p>Coronas para puerta principal, guirnaldas de pared y colgantes con canela y pino.</p>
+            <a class="btn btn-glass btn-sm" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" target="_blank" rel="noopener">📖 Ver en el libro</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">CAPÍTULO 3</span>
+            <span class="poster-pages">20 proyectos</span>
+            <img src="macrame-assets/cat3-mesa.webp" alt="Categoría 3: Mesa y Servilleteros" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Mesa y Servilleteros</h3>
+            <p>Servilleteros festivos, caminos de mesa, posavasos y portavelas para la cena navideña.</p>
+            <a class="btn btn-glass btn-sm" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" target="_blank" rel="noopener">📖 Ver en el libro</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">CAPÍTULO 4</span>
+            <span class="poster-pages">20 proyectos</span>
+            <img src="macrame-assets/cat4-estrellas.webp" alt="Categoría 4: Estrellas y Ángeles" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Estrellas, Ángeles y Copos</h3>
+            <p>Los diseños más pedidos para regalar y vender en sets de 3 o 6 piezas.</p>
+            <a class="btn btn-glass btn-sm" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" target="_blank" rel="noopener">📖 Ver en el libro</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">CAPÍTULO 5</span>
+            <span class="poster-pages">25 proyectos</span>
+            <img src="macrame-assets/cat5-gnomos.webp" alt="Categoría 5: Gnomos y Regalos" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Gnomos y Regalos Rápidos</h3>
+            <p>Gnomos navideños con barba peinada, llaveros y detalles económicos de alto margen.</p>
+            <a class="btn btn-glass btn-sm" href="pdfs-macrame/Navidad_en_Macrame_100_Proyectos.pdf" target="_blank" rel="noopener">📖 Ver en el libro</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRATELEIRA 2: OS 4 NUDOS BASE -->
+    <section class="shelf" id="nudos">
+      <div class="shelf-head">
+        <div>
+          <h2>🪢 Biblioteca Visual: Los 4 Nudos Base</h2>
+          <p>Toca cualquier nudo para verlo en detalle paso a paso antes de iniciar tu proyecto.</p>
+        </div>
+        <span class="swipe-hint">Toca para abrir</span>
+      </div>
+
+      <div class="rail">
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">NUDO 01</span>
+            <img src="macrame-assets/nudo-alondra.webp" alt="Nudo Alondra paso a paso" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Nudo Alondra</h3>
+            <p>Sirve para montar y sujetar las cuerdas en aros de madera, palitos o argollas de llavero.</p>
+            <button type="button" class="btn btn-glass btn-sm" onclick="openModal('Nudo 01 · Nudo Alondra','macrame-assets/nudo-alondra.webp','1. Dobla la cuerda exactamente por la mitad formando un bucle arriba. 2. Coloca el bucle por encima del aro o palito y pásalo hacia atrás. 3. Mete los dos extremos sueltos por dentro del bucle y tira suavemente hacia abajo para ajustar.')">👁 Ver explicación</button>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">NUDO 02</span>
+            <img src="macrame-assets/nudo-cuadrado.webp" alt="Nudo Cuadrado paso a paso" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Nudo Cuadrado (Plano)</h3>
+            <p>El nudo principal del macramé: crea cuerpo firme en árboles, cuerpos de ángeles y guirnaldas.</p>
+            <button type="button" class="btn btn-glass btn-sm" onclick="openModal('Nudo 02 · Nudo Cuadrado','macrame-assets/nudo-cuadrado.webp','Trabajas con 4 hilos (2 centrales fijos y 2 laterales activos). 1. Pasa el hilo izquierdo por delante de los centrales formando un 4. 2. Pasa el derecho por encima de esa cola, por detrás de los centrales y sácalo por el hueco izquierdo. 3. Repite el espejo empezando por la derecha.')">👁 Ver explicación</button>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">NUDO 03</span>
+            <img src="macrame-assets/nudo-feston.webp" alt="Nudo Festón paso a paso" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Nudo Festón (Diagonal)</h3>
+            <p>Dibuja líneas, picos de estrellas, alas de ángeles y siluetas de árboles navideños.</p>
+            <button type="button" class="btn btn-glass btn-sm" onclick="openModal('Nudo 03 · Nudo Festón','macrame-assets/nudo-feston.webp','1. Elige un hilo guía y mantenlo tenso en el ángulo que desees (horizontal o diagonal). 2. Toma cada hilo vecino y envuélvelo DOS veces alrededor del hilo guía, ajustando firme después de cada vuelta para formar el cordón en relieve.')">👁 Ver explicación</button>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag">NUDO 04</span>
+            <img src="macrame-assets/nudo-barrilito.webp" alt="Nudo Barrilito paso a paso" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Nudo Barrilito (Cierre)</h3>
+            <p>El cierre limpio profesional que deja borlas, ángeles y colgantes con acabado de tienda.</p>
+            <button type="button" class="btn btn-glass btn-sm" onclick="openModal('Nudo 04 · Nudo Barrilito / Envolvente','macrame-assets/nudo-barrilito.webp','1. Forma un bucle en U hacia abajo con un hilo corto sobre el manojo de cuerdas. 2. Enrolla el extremo largo de 4 a 6 vueltas firmes de arriba hacia abajo. 3. Pasa la punta por el bucle inferior y tira del hilo superior para esconder el cierre adentro.')">👁 Ver explicación</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRATELEIRA 3: OS 8 BÔNUS EM PDF -->
+    <section class="shelf" id="bonos">
+      <div class="shelf-head">
+        <div>
+          <h2>🎁 Tus 8 Bonos Exclusivos de Regalo</h2>
+          <p>Descarga cada bono por separado o el Pack Completo reunido en 1 solo PDF.</p>
+        </div>
+        <span class="swipe-hint">Desliza →</span>
+      </div>
+
+      <div class="rail">
+        <article class="nf-card" data-card="pack-8-bonos">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">★ PACK 8 EN 1</span>
+            <span class="poster-pages">24 páginas • PDF</span>
+            <img src="macrame-assets/hero-bundle-sm.webp" alt="Pack Completo 8 Bonos" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Pack Completo: Los 8 Bonos</h3>
+            <p>Todos los bonos reunidos en un solo archivo PDF listo para guardar o imprimir.</p>
+            <a class="btn btn-gold btn-sm" href="pdfs-macrame/Pack_8_Bonos_Completos_Navidad_Macrame.pdf" download onclick="markDone('pack-8-bonos')">⬇ Descargar 8 en 1</a>
+            <label class="done-toggle"><input type="checkbox" data-check="pack-8-bonos" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono1">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 1</span>
+            <span class="poster-pages">4 páginas • PDF</span>
+            <img src="macrame-assets/nudo-alondra.webp" alt="Bono 1: Calculadora de Hilo y Cuerda" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Calculadora de Hilo y Cuerda</h3>
+            <p>Tabla exacta de metros por adorno y rendimiento por rollo de 100 m sin desperdiciar.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_1_Calculadora_Cuerda.pdf" download onclick="markDone('bono1')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono1" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono2">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 2</span>
+            <span class="poster-pages">7 páginas • PDF</span>
+            <img src="macrame-assets/cat1-arbol.webp" alt="Bono 2: Colgantes Exprés" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Colgantes Exprés para Regalar</h3>
+            <p>10 modelos elegantes en menos de 20 minutos para botellas, bolsas de regalo y puertas.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_2_Colgantes_Expres.pdf" download onclick="markDone('bono2')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono2" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono3">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 3</span>
+            <span class="poster-pages">5 páginas • PDF</span>
+            <img src="macrame-assets/cat4-estrellas.webp" alt="Bono 3: Precios y Ventas en Diciembre" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Precios y Ventas en Diciembre</h3>
+            <p>Fórmula de precios, combos x3/x6 y 5 guiones listos para vender por WhatsApp.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_3_Precios_y_Ventas.pdf" download onclick="markDone('bono3')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono3" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono4">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 4</span>
+            <span class="poster-pages">4 páginas • PDF</span>
+            <img src="macrame-assets/nudo-barrilito.webp" alt="Bono 4: Acabados de Fiesta" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Acabados de Fiesta</h3>
+            <p>Cómo peinar flecos perfectos, endurecer adornos y sumar detalles dorados y canela.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_4_Acabados_de_Fiesta.pdf" download onclick="markDone('bono4')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono4" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono5">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 5</span>
+            <span class="poster-pages">5 páginas • PDF</span>
+            <img src="macrame-assets/cat5-gnomos.webp" alt="Bono 5: Regalos de Último Momento" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Regalos en Menos de 30 Min</h3>
+            <p>10 proyectos relámpago aprovechando sobrantes de cuerda para regalos de último minuto.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_5_Regalos_Ultimo_Momento.pdf" download onclick="markDone('bono5')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono5" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono6">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 6</span>
+            <span class="poster-pages">3 páginas • PDF</span>
+            <img src="macrame-assets/cat3-mesa.webp" alt="Bono 6: Planificador de Producción" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Planificador Navidad y Año Nuevo</h3>
+            <p>Checklist de 4 semanas y hoja imprimible de registro de pedidos y ganancias.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_6_Planificador_Produccion.pdf" download onclick="markDone('bono6')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono6" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono7">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 7</span>
+            <span class="poster-pages">3 páginas • PDF</span>
+            <img src="macrame-assets/portada-alt.webp" alt="Bono 7: Guía de Materiales y Compras" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Guía de Materiales y Compras</h3>
+            <p>Qué cuerda elegir y palabras exactas para comprar más barato en LATAM, EE.UU. y España.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_7_Guia_Materiales_Compras.pdf" download onclick="markDone('bono7')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono7" /> Descargado</label>
+          </div>
+        </article>
+
+        <article class="nf-card" data-card="bono8">
+          <div class="nf-poster wide">
+            <span class="poster-tag free">BONO 8</span>
+            <span class="poster-pages">3 páginas • PDF</span>
+            <img src="macrame-assets/cat2-coronas.webp" alt="Bono 8: Etiquetas y Packaging Imprimible" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Etiquetas y Packaging Imprimible</h3>
+            <p>18 textos "Hecho a mano con amor" e ideas económicas de empaque boutique.</p>
+            <a class="btn btn-primary btn-sm" href="pdfs-macrame/Bono_8_Etiquetas_Packaging_Imprimible.pdf" download onclick="markDone('bono8')">⬇ Descargar PDF</a>
+            <label class="done-toggle"><input type="checkbox" data-check="bono8" /> Descargado</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRATELEIRA 4: VITRINE VIP COM CADEADO (VENDA ORGÂNICA EXTRA) -->
+    <section class="vitrine-section" id="vitrine">
+      <div class="shelf-head" style="margin-bottom:0;">
+        <div>
+          <div class="vip-badge" style="margin-bottom:8px;">🔒 Beneficio Exclusivo para Alumnas Activas</div>
+          <h2>Amplía tu Taller Navideño y Vende Todo el Año</h2>
+          <p>Colecciones complementarias con tarifa preferencial VIP. Toca cualquiera para desbloquear al instante.</p>
+        </div>
+      </div>
+
+      <div class="vitrine-grid">
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag lock">🔒 EXCLUSIVO VIP</span>
+            <img src="assets/hero-amigurumi-hd-sm.webp" alt="Colección +45 Mini Amigurumis Navideños Sin Costuras" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>+45 Mini Amigurumis Navideños</h3>
+            <p>5 guías en PDF sin costuras + Pesebre (Nacimiento) + videoteca de puntos básicos desde cero.</p>
+            <div class="vip-price"><s>$14.99</s><strong>$9.99 USD</strong></div>
+            <a class="btn btn-unlock btn-sm" href="https://pay.cakto.com.br/38i8zws" target="_blank" rel="noopener">🔓 Desbloquear Colección</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag lock">🔒 EXCLUSIVO VIP</span>
+            <img src="assets/portal/02_Cakto_OB1_Ventas_WhatsApp_1200x1000_UltraHD_6por5.jpg" alt="Guía Secreta Vende por WhatsApp en Navidad" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Guía Secreta: Vende por WhatsApp</h3>
+            <p>Calendario de 21 días de Estados, 15 guiones probados de cierre y sistema de pedidos navideños.</p>
+            <div class="vip-price"><s>$19.00</s><strong>$6.99 USD</strong></div>
+            <a class="btn btn-unlock btn-sm" href="https://pay.cakto.com.br/bx5zm88_1345655" target="_blank" rel="noopener">🔓 Desbloquear Guía</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag lock">🔒 EXCLUSIVO VIP</span>
+            <img src="assets/portal/03_Cakto_OB2_Dinos_Animalitos_1200x1000_UltraHD_6por5.jpg" alt="Combo Animalitos y Dinosaurios +29 Patrones" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>Animalitos y Dinos (+29 Patrones)</h3>
+            <p>2 libros completos (68 páginas) con 14 dinosaurios y 15 animalitos tiernos para vender todo el año.</p>
+            <div class="vip-price"><s>$24.00</s><strong>$7.99 USD</strong></div>
+            <a class="btn btn-unlock btn-sm" href="https://pay.cakto.com.br/9sqpmje_1345660" target="_blank" rel="noopener">🔓 Desbloquear Combo</a>
+          </div>
+        </article>
+
+        <article class="nf-card">
+          <div class="nf-poster wide">
+            <span class="poster-tag lock">🔒 EXCLUSIVO VIP</span>
+            <img src="assets/portal/04_Cakto_OB3_100_Amigurumis_1200x1000_UltraHD_6por5.jpg" alt="+100 Amigurumis Personalizados" loading="lazy" />
+          </div>
+          <div class="nf-body">
+            <h3>+100 Amigurumis Personalizados</h3>
+            <p>Sistema modular de 41 páginas: 20 moldes base y 48 accesorios para crear modelos por encargo.</p>
+            <div class="vip-price"><s>$29.00</s><strong>$3.99 USD</strong></div>
+            <a class="btn btn-unlock btn-sm" href="https://pay.cakto.com.br/msra3h5_1345669" target="_blank" rel="noopener">🔓 Desbloquear Moldes</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="portal-footer">
+    <strong>Navidad en Macramé · Portal VIP Oficial</strong><br />
+    Acceso garantizado de por vida · Soporte a alumnas: <a href="mailto:teixeiraligya@gmail.com">teixeiraligya@gmail.com</a>
+  </footer>
+
+  <!-- MENU FIXO INFERIOR MOBILE -->
+  <nav class="bottom-nav" aria-label="Menú inferior">
+    <a href="#inicio" class="active"><span class="ico">🎄</span><span>Inicio</span></a>
+    <a href="#coleccion"><span class="ico">📘</span><span>Guías</span></a>
+    <a href="#bonos"><span class="ico">🎁</span><span>8 Bonos</span></a>
+    <a href="#vitrine"><span class="ico">🔒</span><span>Más</span></a>
+  </nav>
+
+  <!-- MODAL CINEMA -->
+  <div class="modal" id="cinemaModal" onclick="closeModal()" role="dialog" aria-modal="true">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-top">
+        <h3 id="modalTitle">Detalle</h3>
+        <button type="button" class="modal-close" onclick="closeModal()">✕ Cerrar</button>
+      </div>
+      <img id="modalImg" class="modal-img" src="" alt="Vista ampliada" />
+      <p id="modalText" class="modal-text"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const STORAGE_KEY = "portal_macrame_vip_v1";
+    const checks = Array.from(document.querySelectorAll("input[data-check]"));
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) {}
+
+    const toastEl = document.getElementById("toast");
+    let toastTimer = null;
+    function showToast(msg) {
+      if (!toastEl) return;
+      toastEl.textContent = msg;
+      toastEl.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2600);
+    }
+
+    function updateProgress() {
+      let done = 0;
+      checks.forEach((cb) => {
+        const card = cb.closest(".nf-card");
+        if (cb.checked) {
+          done += 1;
+          if (card) card.classList.add("done");
+        } else if (card) {
+          card.classList.remove("done");
+        }
+      });
+      const pct = checks.length ? Math.round((done / checks.length) * 100) : 0;
+      const fill = document.getElementById("progressFill");
+      const txt = document.getElementById("progressText");
+      if (fill) fill.style.width = pct + "%";
+      if (txt) txt.textContent = `${done}/${checks.length}`;
+    }
+
+    function markDone(id) {
+      const cb = document.querySelector(`input[data-check="${id}"]`);
+      if (cb && !cb.checked) {
+        cb.checked = true;
+        saved[id] = true;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) {}
+        updateProgress();
+      }
+      showToast("✓ Descarga iniciada — ¡disfruta tu guía!");
+    }
+
+    checks.forEach((cb) => {
+      const id = cb.dataset.check;
+      cb.checked = Boolean(saved[id]);
+      cb.addEventListener("change", () => {
+        saved[id] = cb.checked;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) {}
+        updateProgress();
+        if (cb.checked) showToast("✓ Marcado en tu progreso");
+      });
+    });
+    updateProgress();
+
+    function openModal(title, imgSrc, text) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalImg").src = imgSrc;
+      document.getElementById("modalText").textContent = text;
+      document.getElementById("cinemaModal").classList.add("open");
+    }
+    function closeModal() {
+      document.getElementById("cinemaModal").classList.remove("open");
+    }
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  </script>
+</body>
+</html>

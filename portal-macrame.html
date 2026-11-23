@@ -511,13 +511,15 @@
       text-overflow: ellipsis;
     }
 
-    /* VITRINE VIP (LOCKED NETFLIX CARDS) */
+    /* VITRINE VIP (LOCKED -> AUTO-UNLOCKED NETFLIX CARDS) */
     .vip-row {
       margin-top: 8px;
       padding-top: 28px;
       border-top: 1px solid var(--line);
     }
     .ep-card.locked .ep-thumb img { filter: brightness(0.76) saturate(0.92); }
+    .ep-card.unlocked { border-color: rgba(70, 211, 105, 0.55); }
+    .ep-card.unlocked .ep-thumb img { filter: none; }
     .lock-icon-badge {
       position: absolute;
       top: 10px;
@@ -532,6 +534,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .ep-card.unlocked .lock-icon-badge {
+      background: var(--green);
+      border-color: var(--green);
+      color: #09130F;
+    }
+    .unlocked-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green);
+      margin-top: 3px;
     }
     .vip-price-line {
       display: flex;
@@ -998,58 +1012,58 @@
 
       <div class="rail-wrap">
         <div class="rail">
-          <article class="ep-card locked" onclick="openDetail('vip-amigurumi')">
+          <article class="ep-card locked" data-vip="amigurumis" onclick="openDetail('vip-amigurumi')">
             <div class="ep-thumb">
               <span class="lock-icon-badge" aria-label="Bloqueado"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
               <img src="assets/hero-amigurumi-hd-sm.webp" alt="+45 Mini Amigurumis Navideños" loading="lazy" />
             </div>
             <div class="ep-body">
               <div class="ep-info">
-                <div class="ep-kicker">Exclusivo Alumnas</div>
+                <div class="ep-kicker" data-vip-kicker>Exclusivo Alumnas</div>
                 <h3>+45 Mini Amigurumis Navideños</h3>
-                <div class="vip-price-line"><s>$14.99</s><strong>$9.99 USD</strong></div>
+                <div class="vip-price-line" data-vip-price><s>$14.99</s><strong>$9.99 USD</strong></div>
               </div>
             </div>
           </article>
 
-          <article class="ep-card locked" onclick="openDetail('vip-whatsapp')">
+          <article class="ep-card locked" data-vip="whatsapp" onclick="openDetail('vip-whatsapp')">
             <div class="ep-thumb">
               <span class="lock-icon-badge" aria-label="Bloqueado"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
               <img src="assets/portal/02_Cakto_OB1_Ventas_WhatsApp_1200x1000_UltraHD_6por5.jpg" alt="Guía Secreta Vende por WhatsApp" loading="lazy" />
             </div>
             <div class="ep-body">
               <div class="ep-info">
-                <div class="ep-kicker">Exclusivo Alumnas</div>
+                <div class="ep-kicker" data-vip-kicker>Exclusivo Alumnas</div>
                 <h3>Guía Secreta: WhatsApp Navidad</h3>
-                <div class="vip-price-line"><s>$19.00</s><strong>$6.99 USD</strong></div>
+                <div class="vip-price-line" data-vip-price><s>$19.00</s><strong>$6.99 USD</strong></div>
               </div>
             </div>
           </article>
 
-          <article class="ep-card locked" onclick="openDetail('vip-dinos')">
+          <article class="ep-card locked" data-vip="dinos" onclick="openDetail('vip-dinos')">
             <div class="ep-thumb">
               <span class="lock-icon-badge" aria-label="Bloqueado"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
               <img src="assets/portal/03_Cakto_OB2_Dinos_Animalitos_1200x1000_UltraHD_6por5.jpg" alt="Combo Animalitos y Dinosaurios" loading="lazy" />
             </div>
             <div class="ep-body">
               <div class="ep-info">
-                <div class="ep-kicker">Exclusivo Alumnas</div>
+                <div class="ep-kicker" data-vip-kicker>Exclusivo Alumnas</div>
                 <h3>Animalitos y Dinos (+29 Patrones)</h3>
-                <div class="vip-price-line"><s>$24.00</s><strong>$7.99 USD</strong></div>
+                <div class="vip-price-line" data-vip-price><s>$24.00</s><strong>$7.99 USD</strong></div>
               </div>
             </div>
           </article>
 
-          <article class="ep-card locked" onclick="openDetail('vip-100')">
+          <article class="ep-card locked" data-vip="personalizados" onclick="openDetail('vip-100')">
             <div class="ep-thumb">
               <span class="lock-icon-badge" aria-label="Bloqueado"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
               <img src="assets/portal/04_Cakto_OB3_100_Amigurumis_1200x1000_UltraHD_6por5.jpg" alt="+100 Amigurumis Personalizados" loading="lazy" />
             </div>
             <div class="ep-body">
               <div class="ep-info">
-                <div class="ep-kicker">Exclusivo Alumnas</div>
+                <div class="ep-kicker" data-vip-kicker>Exclusivo Alumnas</div>
                 <h3>+100 Amigurumis Personalizados</h3>
-                <div class="vip-price-line"><s>$29.00</s><strong>$3.99 USD</strong></div>
+                <div class="vip-price-line" data-vip-price><s>$29.00</s><strong>$3.99 USD</strong></div>
               </div>
             </div>
           </article>
@@ -1153,11 +1167,52 @@
       'nudo2': { kicker: 'Nudo Base 02', title: 'Nudo Cuadrado (Plano)', desc: 'Con 4 hilos (2 centrales fijos y 2 laterales): pasa el izquierdo por delante formando un 4, cruza el derecho por encima, pásalo detrás de los centrales y sácalo por el hueco izquierdo. Repite en espejo.', img: 'macrame-assets/nudo-cuadrado.webp' },
       'nudo3': { kicker: 'Nudo Base 03', title: 'Nudo Festón (Diagonal)', desc: 'Mantén un hilo guía tenso en horizontal o diagonal. Envuelve cada hilo vecino DOS veces alrededor del guía, ajustando firme después de cada vuelta para dibujar líneas, picos y alas.', img: 'macrame-assets/nudo-feston.webp' },
       'nudo4': { kicker: 'Nudo Base 04', title: 'Nudo Barrilito (Cierre)', desc: 'Forma una U hacia abajo con un hilo corto sobre el manojo. Da 4 a 6 vueltas firmes con el extremo largo, mete la punta en el bucle inferior y jala la punta superior para ocultar el nudo por dentro.', img: 'macrame-assets/nudo-barrilito.webp' },
-      'vip-amigurumi': { kicker: 'Tarifa Exclusiva Alumnas · De $14.99 por $9.99 USD', title: '+45 Mini Amigurumis Navideños Sin Costuras', desc: 'Combina tus adornos de macramé con 5 guías ilustradas de crochet navideño sin costuras, Pesebre Sagrada Familia y videoteca de puntos básicos desde cero.', img: 'assets/hero-amigurumi-hd-sm.webp', buyUrl: 'https://pay.cakto.com.br/38i8zws', buyLabel: 'Desbloquear por $9.99 USD' },
-      'vip-whatsapp': { kicker: 'Tarifa Exclusiva Alumnas · De $19.00 por $6.99 USD', title: 'Guía Secreta: Vende por WhatsApp en Navidad', desc: 'Calendario de 21 días de Estados, 15 guiones listos de atención y cierre, fórmula de precios en USD y checklist de empaque para multiplicar tus pedidos navideños.', img: 'assets/portal/02_Cakto_OB1_Ventas_WhatsApp_1200x1000_UltraHD_6por5.jpg', buyUrl: 'https://pay.cakto.com.br/bx5zm88_1345655', buyLabel: 'Desbloquear por $6.99 USD' },
-      'vip-dinos': { kicker: 'Tarifa Exclusiva Alumnas · De $24.00 por $7.99 USD', title: 'Animalitos y Dinosaurios (+29 Patrones)', desc: '2 libros completos en español (68 páginas) con 14 dinosaurios jurásicos y 15 animalitos tiernos paso a paso para seguir vendiendo todo el año después de Navidad.', img: 'assets/portal/03_Cakto_OB2_Dinos_Animalitos_1200x1000_UltraHD_6por5.jpg', buyUrl: 'https://pay.cakto.com.br/9sqpmje_1345660', buyLabel: 'Desbloquear por $7.99 USD' },
-      'vip-100': { kicker: 'Tarifa Exclusiva Alumnas · De $29.00 por $3.99 USD', title: '+100 Amigurumis Personalizados (Moldes Base)', desc: 'Sistema modular ilustrado de 41 páginas con 20 moldes base y 48 accesorios combinables para tejer muñecos personalizados por encargo.', img: 'assets/portal/04_Cakto_OB3_100_Amigurumis_1200x1000_UltraHD_6por5.jpg', buyUrl: 'https://pay.cakto.com.br/msra3h5_1345669', buyLabel: 'Desbloquear por $3.99 USD' }
+      'vip-amigurumi': { vipKey: 'amigurumis', accessUrl: 'taller.html', accessLabel: 'Abrir +45 Mini Amigurumis', kicker: 'Tarifa Exclusiva Alumnas · De $14.99 por $9.99 USD', title: '+45 Mini Amigurumis Navideños Sin Costuras', desc: 'Combina tus adornos de macramé con 5 guías ilustradas de crochet navideño sin costuras, Pesebre Sagrada Familia y videoteca de puntos básicos desde cero.', img: 'assets/hero-amigurumi-hd-sm.webp', buyUrl: 'https://pay.cakto.com.br/38i8zws', buyLabel: 'Desbloquear por $9.99 USD' },
+      'vip-whatsapp': { vipKey: 'whatsapp', accessUrl: 'acceso-vip-ventas.html', accessLabel: 'Abrir Guía de Ventas WhatsApp', kicker: 'Tarifa Exclusiva Alumnas · De $19.00 por $6.99 USD', title: 'Guía Secreta: Vende por WhatsApp en Navidad', desc: 'Calendario de 21 días de Estados, 15 guiones listos de atención y cierre, fórmula de precios en USD y checklist de empaque para multiplicar tus pedidos navideños.', img: 'assets/portal/02_Cakto_OB1_Ventas_WhatsApp_1200x1000_UltraHD_6por5.jpg', buyUrl: 'https://pay.cakto.com.br/bx5zm88_1345655', buyLabel: 'Desbloquear por $6.99 USD' },
+      'vip-dinos': { vipKey: 'dinos', accessUrl: 'acceso-vip-variedades.html', accessLabel: 'Abrir Combo Animalitos y Dinos', kicker: 'Tarifa Exclusiva Alumnas · De $24.00 por $7.99 USD', title: 'Animalitos y Dinosaurios (+29 Patrones)', desc: '2 libros completos en español (68 páginas) con 14 dinosaurios jurásicos y 15 animalitos tiernos paso a paso para seguir vendiendo todo el año después de Navidad.', img: 'assets/portal/03_Cakto_OB2_Dinos_Animalitos_1200x1000_UltraHD_6por5.jpg', buyUrl: 'https://pay.cakto.com.br/9sqpmje_1345660', buyLabel: 'Desbloquear por $7.99 USD' },
+      'vip-100': { vipKey: 'personalizados', accessUrl: 'acceso-vip-personalizados.html', accessLabel: 'Abrir +100 Amigurumis Personalizados', kicker: 'Tarifa Exclusiva Alumnas · De $29.00 por $3.99 USD', title: '+100 Amigurumis Personalizados (Moldes Base)', desc: 'Sistema modular ilustrado de 41 páginas con 20 moldes base y 48 accesorios combinables para tejer muñecos personalizados por encargo.', img: 'assets/portal/04_Cakto_OB3_100_Amigurumis_1200x1000_UltraHD_6por5.jpg', buyUrl: 'https://pay.cakto.com.br/msra3h5_1345669', buyLabel: 'Desbloquear por $3.99 USD' }
     };
+
+    const ALL_VIP_KEYS = ['amigurumis', 'whatsapp', 'dinos', 'personalizados'];
+    const UNLOCK_STORAGE_KEY = 'portal_macrame_unlocks_v1';
+    let unlockedVips = {};
+    try { unlockedVips = JSON.parse(localStorage.getItem(UNLOCK_STORAGE_KEY) || '{}'); } catch (e) {}
+
+    function applyUnlocksFromUrl() {
+      const raw = new URLSearchParams(window.location.search).get('unlock');
+      if (!raw) return false;
+      let added = false;
+      raw.toLowerCase().split(',').map((s) => s.trim()).forEach((k) => {
+        if (k === 'all' || k === 'todos') {
+          ALL_VIP_KEYS.forEach((ak) => { unlockedVips[ak] = true; added = true; });
+        } else if (ALL_VIP_KEYS.includes(k)) {
+          unlockedVips[k] = true;
+          added = true;
+        }
+      });
+      if (added) {
+        try { localStorage.setItem(UNLOCK_STORAGE_KEY, JSON.stringify(unlockedVips)); } catch (e) {}
+      }
+      return added;
+    }
+
+    function renderVipUnlocks() {
+      document.querySelectorAll('[data-vip]').forEach((card) => {
+        const key = card.getAttribute('data-vip');
+        if (!unlockedVips[key]) return;
+        card.classList.remove('locked');
+        card.classList.add('unlocked');
+        const badge = card.querySelector('.lock-icon-badge');
+        if (badge) {
+          badge.setAttribute('aria-label', 'Desbloqueado');
+          badge.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+        }
+        const kEl = card.querySelector('[data-vip-kicker]');
+        if (kEl) kEl.textContent = 'Colección Liberada';
+        const pEl = card.querySelector('[data-vip-price]');
+        if (pEl) pEl.innerHTML = '<span class="unlocked-pill">✓ Desbloqueado · Abrir ahora</span>';
+      });
+    }
 
     const TRACKABLE = ['guia-principal','pack-8-bonos','bono1','bono2','bono3','bono4','bono5','bono6','bono7','bono8'];
     const STORAGE_KEY = 'portal_macrame_vip_v2';
@@ -1223,6 +1278,13 @@
         viewBtn.rel = 'noopener';
         viewBtn.textContent = 'Leer en el navegador';
         actions.appendChild(viewBtn);
+      } else if (item.vipKey && unlockedVips[item.vipKey] && item.accessUrl) {
+        document.getElementById('mKicker').textContent = '✓ Colección Desbloqueada · Acceso Vitalicio';
+        const acc = document.createElement('a');
+        acc.className = 'nf-btn nf-btn-white';
+        acc.href = item.accessUrl;
+        acc.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>' + (item.accessLabel || 'Acceder ahora');
+        actions.appendChild(acc);
       } else if (item.buyUrl) {
         const b = document.createElement('a');
         b.className = 'nf-btn nf-btn-red';
@@ -1257,7 +1319,16 @@
     }, { passive: true });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDetail(); });
 
+    const newlyUnlocked = applyUnlocksFromUrl();
+    renderVipUnlocks();
     renderProgress();
+    if (newlyUnlocked) {
+      showToast('✓ ¡Colección VIP desbloqueada en tu portal!');
+      setTimeout(() => {
+        const v = document.getElementById('vitrine');
+        if (v) v.scrollIntoView({ behavior: 'smooth' });
+      }, 450);
+    }
   </script>
 </body>
 </html>
